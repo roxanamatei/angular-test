@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html ng-app="store">
+<head>
+    <title>First page</title>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="Content/app.css" />
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="Modules/products.js"></script>
+</head>
+<body>
+    <div ng-controller="StoreController as store" class="ex1">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+               
+                <!--<h3 ng-include="'Templates/product-title.html'"></h3>-->
+                <product-title></product-title>
+                <img ng-src= {{product.imageSource}} />
+                <button ng-show="product.canPurchase" class="btn" >Add to Cart</button>
+                <product-panels></product-panels>
+            </li>
+        </ul>     
+    </div>
+</body>
+</html>

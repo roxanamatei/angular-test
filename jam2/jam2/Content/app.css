@@ -1,0 +1,11 @@
+﻿div.ex1 {
+   max-width: 50%;
+    margin: auto;
+ }
+
+.ng-invalid.ng-dirty{
+    border-color:#FA787E;
+}
+.ng-valid.ng-dirty{
+    border-color:#F8FA89;
+}
