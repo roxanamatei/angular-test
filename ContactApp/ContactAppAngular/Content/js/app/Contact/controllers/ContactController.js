@@ -1,33 +1,18 @@
 ﻿
-var app = angular.module('appDefaultContact', []);
-var apiUrl = 'api/Contacts';
-app.factory('contactFactory', function ($http) {
-    return {
-        getContacts: function () {
-            return $http.get(apiUrl);
-        },
-        addContact: function (contact) {
-            return $http.post(apiUrl, contact);
-        },
-        deleteContact: function (contact) {
-            return $http.delete(apiUrl + "/" + contact.id);
-        },
-        updateContact: function (contact) {
-            return $http.put(apiUrl + "/" + contact.id, contact);
-        }
-    };
-});
+var app = angular.module('contact', ['contact-store']);
 
 app.controller('ContactsController', ['$scope', 'contactFactory', function ($scope, contactFactory) {
     $scope.contacts = [];
     $scope.loading = true;
     $scope.addMode = false;
+    debugger;
 
     $scope.toggleedit = function () {
         this.contact.editMode = !this.contact.editMode;
     };
     $scope.toggleAdd = function () {
         $scope.addMode = !$scope.addMode;
+      
     };
 
 
