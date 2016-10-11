@@ -1,0 +1,125 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html data-ng-app="appDefaultContact" id="ng-app" lang="sv">
+<head>
+    <title>Contact App</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/toastr.css" />
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="../Scripts/toastr.js"></script>
+    @*Latest compiled and minified CSS*@
+
+    <style>
+        #mydiv {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background-color: grey;
+            opacity: .8;
+        }
+
+        .ajax-loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -32px; /* -1 * image width / 2 */
+            margin-top: -32px; /* -1 * image height / 2 */
+            display: block;
+        }
+        .ng-invalid.ng-dirty {
+            border-color:palevioletred;
+        }
+
+        .ng-valid.ng-dirty {
+            border-color:greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div data-ng-controller="ContactsController" class="container">
+        <h2>Contacts</h2>
+        <strong class="error">{{ error }}</strong>
+        <div id="mydiv" data-ng-show="loading">
+            <img src="../Images/loading.gif" class="ajax-loader" />
+        </div>     
+            <p data-ng-hide="addMode"><a ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Add New</a></p>
+            <form name="addContact" ng-show="addMode" style="width: 800px; margin: 0px ;" novalidate>           
+                <fieldset class="form-group">
+                   <input type="text" data-ng-model="newcontact.firstName" placeholder="First Name" required title="FirstName" />
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="text" data-ng-model="newcontact.lastName" placeholder="Last Name" required title="LastName" />
+                </fieldset>      
+                <fieldset class="form-group">
+                    <input type="email" class="form-control" ng-model="newcontact.email" placeholder="jimmyDean@example.org" title="Email" required />
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <textarea class="form-control" ng-model="reviewCtrl.review.body" placeholder="Write a short description of the contact..." title="Description" required></textarea>
+                </fieldset>
+                    <fieldset class="form-group">
+                    <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
+                    <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
+                </fieldset>
+            </form>
+
+        <table class="table table-bordered table-hover" style="width: 800px">
+            <tr>
+                <th>#</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" data-ng-model="search.firstName" />
+                </td>
+                <td>
+                    <input type="text" data-ng-model="search.lastName" />
+                </td>
+                <td>
+                    <input type="text" data-ng-model="search.email" />
+                </td>
+                <td></td>
+            </tr>
+
+            <tr data-ng-repeat="contact in contacts | filter:search">
+                <td><strong data-ng-hide="contact.editMode">{{ contact.id }}</strong></td>
+                <td>
+                    <p data-ng-hide="contact.editMode">{{ contact.firstName }}</p>
+                    <p data-ng-show="contact.editMode">
+                        <input type="text" data-ng-model="contact.firstName" />
+                    </p>
+                </td>
+               <td>
+                <p data-ng-hide="contact.editMode">{{ contact.lastName }}</p>
+                <p data-ng-show="contact.editMode">
+                    <input type="text" data-ng-model="contact.lastName" />
+                </p>
+                </td>
+                <td>
+                    <p data-ng-hide="contact.editMode">{{ contact.email }}</p>
+                    <input data-ng-show="contact.editMode" type="text" data-ng-model="contact.email" />
+                </td>
+                <td>
+                    <p data-ng-hide="contact.editMode"><a data-ng-click="toggleedit(contact)" href="javascript:;">Edit</a> | <a data-ng-click="delcontact(contact)" href="javascript:;">Delete</a></p>
+                    <p data-ng-show="contact.editMode"><a data-ng-click="save(contact)" href="javascript:;">Save</a> | <a data-ng-click="toggleedit(contact)" href="javascript:;">Cancel</a></p>
+                </td>
+            </tr>
+        </table>
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/app")
+
+</body>
+</html>
