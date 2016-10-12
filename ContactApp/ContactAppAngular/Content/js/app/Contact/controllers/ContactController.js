@@ -1,7 +1,6 @@
-﻿
-var app = angular.module('contact', ['contact-store']);
+﻿(function () {
 
-app.controller('ContactsController', ['$scope', 'contactFactory', function ($scope, contactFactory) {
+    contactModule.controller('ContactsController', ['$scope', 'contactFactory', function ($scope, contactFactory) {
     $scope.contacts = [];
     $scope.loading = true;
     $scope.addMode = false;
@@ -11,8 +10,10 @@ app.controller('ContactsController', ['$scope', 'contactFactory', function ($sco
         this.contact.editMode = !this.contact.editMode;
     };
     $scope.toggleAdd = function () {
+        debugger;
         $scope.addMode = !$scope.addMode;
-      
+
+        $scope.$broadcast("openAddContactPopup");
     };
 
 
@@ -76,3 +77,5 @@ app.controller('ContactsController', ['$scope', 'contactFactory', function ($sco
     });
 
 }]);
+
+})();

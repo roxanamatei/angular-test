@@ -1,12 +1,11 @@
 ﻿(function () {
 
-var app = angular.module('contact');
+//var app = angular.module('contact');
 
 var apiUrl = 'api/Contacts';
-app.factory('contactFactory', function ($http) {
+contactModule.factory('contactFactory', function ($http) {
     return {
         getContacts: function () {
-            debugger;
             return $http.get(apiUrl);
         },
         addContact: function (contact) {
