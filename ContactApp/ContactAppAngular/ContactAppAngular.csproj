@@ -171,8 +171,12 @@
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\dbo.Contact.sql" />
+    <Content Include="Content\images\icon-er-close.png" />
+    <Content Include="Content\images\pencil_14px.png" />
+    <Content Include="Content\js\app\contactModule.js" />
     <Content Include="Content\js\app\Contact\controllers\ContactController.js" />
     <Content Include="Content\js\app\Contact\directives\add-popup.js" />
+    <Content Include="Content\js\app\Contact\directives\contactGrid.js" />
     <Content Include="Content\js\app\Contact\factories\contactFactory.js" />
     <Content Include="Content\js\app\Contact\modules\contacts.js" />
     <Content Include="Content\js\app\Customer\Controlller\CustomerController.js" />
@@ -258,9 +262,13 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\modal.min.js.map" />
+    <Content Include="Scripts\ui-grid.ttf" />
+    <Content Include="Scripts\ui-grid.woff" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-2.2.0.js" />
+    <Content Include="Scripts\ui-grid.css" />
+    <Content Include="Scripts\ui-grid.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,5 +1,4 @@
 ﻿(function () {
-   // var app = angular.module('contactStore', []);
 
     contactModule.directive('contactAdd', function () {
         return {

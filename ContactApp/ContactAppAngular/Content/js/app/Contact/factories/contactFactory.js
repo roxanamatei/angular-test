@@ -12,9 +12,11 @@ contactModule.factory('contactFactory', function ($http) {
             return $http.post(apiUrl, contact);
         },
         deleteContact: function (contact) {
+            debugger;
             return $http.delete(apiUrl + "/" + contact.id);
         },
         updateContact: function (contact) {
+            debugger;
             return $http.put(apiUrl + "/" + contact.id, contact);
         }
     };

@@ -73,6 +73,7 @@
     //get all Contacts- Self Calling -On load
     contactFactory.getContacts().success(function (data) {
         $scope.contacts = data;
+        $scope.totalCount = $scope.contacts.totalCount;
         $scope.loading = false;
     })
     .error(function (data) {

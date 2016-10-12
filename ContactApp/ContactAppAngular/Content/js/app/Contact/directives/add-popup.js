@@ -27,7 +27,6 @@
     function ModalInstanceController($scope, $uibModalInstance) {
 
         var closeModal = function () {
-                debugger;
                 $uibModalInstance.dismiss("cancel");
             };
 
@@ -35,7 +34,6 @@
                 closeModal();
             };
             $scope.$on("closeModal", function () {
-                debugger;
                 closeModal();
             });
     };

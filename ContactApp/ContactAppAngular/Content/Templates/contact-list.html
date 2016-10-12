@@ -1,4 +1,4 @@
-﻿<table class="table table-bordered table-hover tableBody" style="width: 800px">
+﻿<!--<table class="table table-bordered table-hover tableBody" style="width: 800px">
     <tr>
         <th>#</th>
         <th>FirstName</th>
@@ -44,4 +44,15 @@
         </td>
     </tr>
 </table>
+<hr />-->
+
+<!--<div ui-grid="{ data: contacts }" class="myGrid"></div>-->
+<br />
+<contactgrid grid-data="contacts"             
+             is-for-grid="true"
+             show-empty-message="There are no search results to display - try changing your search criteria."
+             is-empty="isGridEmpty">
+</contactgrid>
+
 <hr />
+<p>&copy;2016</p>

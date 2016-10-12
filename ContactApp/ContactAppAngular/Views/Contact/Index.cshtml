@@ -8,28 +8,29 @@
     <title>Contact App</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../Content/Site.css" />
-    <link rel="stylesheet" type="text/css" href="../Scripts/modal.css">
+    <link rel="stylesheet" type="text/css" href="../Scripts/ui-grid.css">
     <link rel="stylesheet" type="text/css" href="../Content/toastr.css" />
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="../Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="../Scripts/ui-grid.js"></script>
     <script type="text/javascript" src="../Scripts/ui-bootstrap-tpls-2.2.0.js"></script>
     <script type="text/javascript" src="../Scripts/toastr.js"></script>
     
-    @*<script type="text/javascript" src="../Scripts/modal.min.js"></script>
-    <script type="text/javascript" src="../Scripts/angular-modal-service.min.js"></script>*@
 </head>
-<body>
+<body class="body">
     <div data-ng-controller="ContactsController" class="container">
-        <h2>Contacts</h2>
+        <h2>Contacts Application</h2>
+        <hr />
         <strong class="error">{{ error }}</strong>
 
         <div id="mydiv" data-ng-show="loading">
             <img src="../Images/loading.gif" class="ajax-loader" />
         </div>
    
-        <p data-ng-hide="addMode"><a ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Add New</a></p>
-        <addcontactpopup></addcontactpopup>
+        <p><a ng-click="toggleAdd()" class="btn btn-primary">Add New Contact</a></p>
+       
+         <addcontactpopup></addcontactpopup>
         @*<contact-add></contact-add>*@
 
         <contact-list></contact-list>
