@@ -1,9 +1,9 @@
 ﻿
-<div ng-show="addMode" class="modal-dialog" >
+<div>
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Add new Contact</h4>
+            <h4 class="modal-title">Modal title</h4>
         </div>
         <div class="modal-body">
 
@@ -21,14 +21,14 @@
                 <fieldset class="form-group">
                     <textarea class="form-control" ng-model="reviewCtrl.review.body" placeholder="Write a short description of the contact..." title="Description" required></textarea>
                 </fieldset>
-            </form>            
+               
         </div>
         <div class="modal-footer">
             <fieldset class="form-group">
             <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
             <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
             </fieldset>
-          
+            </form>
         </div>
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->

@@ -6,14 +6,17 @@
     $scope.addMode = false;
     debugger;
 
+
     $scope.toggleedit = function () {
         this.contact.editMode = !this.contact.editMode;
     };
     $scope.toggleAdd = function () {
         debugger;
         $scope.addMode = !$scope.addMode;
-
-        $scope.$broadcast("openAddContactPopup");
+        if ($scope.addMode === true)
+            $scope.$broadcast("openAddContactPopup");
+        else
+            $scope.$broadcast("closeModal");
     };
 
 
@@ -40,6 +43,7 @@
             $scope.addMode = false;
             $scope.contacts.push(data);
             $scope.loading = false;
+            $scope.$broadcast("closeModal");
         }).error(function (data) {
             $scope.error = "An Error has occurred while Adding contact! " + data.ExceptionMessage;
             $scope.loading = false;

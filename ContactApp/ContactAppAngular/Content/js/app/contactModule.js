@@ -1,4 +1,4 @@
-﻿var contactModule = angular.module('contact', ['contactStore', 'ui.bootstrap']);
+﻿var contactModule = angular.module('contact', ['ui.bootstrap']);
 contactModule.value("$", $);
 
 //contactModule.config(["$routeProvider", function ($routeProvider) {
