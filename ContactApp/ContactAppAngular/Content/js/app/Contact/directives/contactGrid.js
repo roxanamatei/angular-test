@@ -4,7 +4,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
     return {
         restrict: "E",
         replace: true,
-        template: "<div><div class=\"grid\" ui-grid=\"gridOptions\" ui-grid-edit ui-grid-row-edit ui-grid-cellNav></div></div>",
+        template: "<div><div class=\"grid\" ui-grid=\"gridOptions\" ui-grid-edit ui-grid-cellnav></div></div>",
         scope: {
             gridData: "=",
             totalCount: "=",
@@ -77,6 +77,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         width: 60,
                         footerCellTemplate: "<div class=\"cell-contents ui-grid-cell-contents\" col-index=\"renderIndex\"></div>",
                         cellTemplate: "<div class=\"ui-grid-cell-contents\">" +
+                            "<img class=\"cursor pull-left\" src=\"../Content/images/save_icon.gif\" ng-click=\"grid.appScope.editContact(row.entity)\"></img>" +
                             "<img class=\"cursor pull-left\" src=\"../Content/images/pencil_14px.png\" ng-click=\"grid.appScope.editContact(row.entity)\"></img>" +
                             "<img class=\"cursor pull-right\" src=\"../Content/images/icon-er-close.png\" ng-click=\"grid.appScope.removeContact(row.entity)\"></img>" +
                             "</div>"
@@ -107,7 +108,16 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
 
             $scope.editContact = function (entity) {
                 debugger;
-                toastr.success("\"" + entity.firstName + "\" was edited successfully.");
+                $scope.loading = true;
+                var cust = entity;
+                contactFactory.updateContact(cust).success(function (data) {
+                    toastr.success("\"" + entity.firstName + "\" was edited successfully.");
+                    cust.editMode = false;
+                    $scope.loading = false;
+                }).error(function (data) {
+                    $scope.error = "An Error has occurred while Saving contact! " + data.ExceptionMessage;
+                    $scope.loading = false;
+                });
             };
 
             var reloadContacts = function () {
