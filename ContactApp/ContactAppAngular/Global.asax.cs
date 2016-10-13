@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ContactAppAngular.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -17,6 +19,7 @@ namespace ContactAppAngular
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            Database.SetInitializer<ContactContext>(new DropCreateDatabaseIfModelChanges<ContactContext>());
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

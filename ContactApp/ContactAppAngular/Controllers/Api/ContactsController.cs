@@ -16,9 +16,15 @@ namespace ContactAppAngular.Controllers
         {
             var result = _contacts.GetAll();
 
-            foreach (var contact in result)
+            try
             {
-                contact.EditMode = 0;
+                foreach (var contact in result)
+                {
+                    contact.EditMode = 0;
+                }
+            }
+            catch (Exception ex) {
+ 
             }
 
             return result;

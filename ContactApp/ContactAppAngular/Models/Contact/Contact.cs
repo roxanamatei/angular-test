@@ -18,6 +18,30 @@ namespace ContactAppAngular.Models
         public string LastName { get; set; }
         [StringLength(100)]
         public string Email { get; set; }
+
+        [StringLength(100)]
+        public string PhoneNumber { get; set; }
+
+        [StringLength(100)]
+        public string City { get; set; }
+
+        [StringLength(100)]
+        public string Country { get; set; }
+
+        [StringLength(100)]
+        public string State { get; set; }
+        DateTime Birthay { get; set; }
+
+        [StringLength(100)]
+        public string Gender { get; set; }
+
+        [StringLength(100)]
+        public string Category { get; set; }
+
+        public string Description { get; set; }
+
+        public string Photo { get; set; }
+
         [NotMapped]
         public int EditMode { get; set; }
 

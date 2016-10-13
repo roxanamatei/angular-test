@@ -171,8 +171,10 @@
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\dbo.Contact.sql" />
+    <Content Include="Content\images\filesaveas.png" />
     <Content Include="Content\images\icon-er-close.png" />
     <Content Include="Content\images\pencil_14px.png" />
+    <Content Include="Content\images\save_icon.gif" />
     <Content Include="Content\js\app\contactModule.js" />
     <Content Include="Content\js\app\Contact\controllers\ContactController.js" />
     <Content Include="Content\js\app\Contact\directives\add-popup.js" />
