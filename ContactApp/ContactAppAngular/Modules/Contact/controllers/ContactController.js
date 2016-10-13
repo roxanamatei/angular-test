@@ -4,14 +4,11 @@
     $scope.contacts = [];
     $scope.loading = true;
     $scope.addMode = false;
-    debugger;
-
 
     $scope.toggleedit = function () {
         this.contact.editMode = !this.contact.editMode;
     };
     $scope.toggleAdd = function () {
-        debugger;
         $scope.addMode = !$scope.addMode;
         if ($scope.addMode === true)
             $scope.$broadcast("openAddContactPopup");
@@ -19,8 +16,6 @@
             $scope.$broadcast("closeModal");
     };
 
-
-    // Save Customer Event
     $scope.save = function () {
         $scope.loading = true;
         var cust = this.contact;
@@ -35,7 +30,6 @@
         });
     };
 
-    // add Customer Event
     $scope.add = function () {
         $scope.loading = true;
         contactFactory.addContact(this.newcontact).success(function (data) {
@@ -50,7 +44,7 @@
 
         });
     };
-    // delete contact Event
+
     $scope.delcontact = function () {
         $scope.loading = true;
         var currentContact = this.contact;

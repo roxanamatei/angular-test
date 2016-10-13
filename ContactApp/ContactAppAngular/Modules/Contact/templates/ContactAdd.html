@@ -9,17 +9,29 @@
 
             <form name="addContact" novalidate>
                 <fieldset class="form-group">
-                    <input type="text" data-ng-model="newcontact.firstName" placeholder="First Name" required title="FirstName" />
+                    <input type="text" class="form-control" data-ng-model="newcontact.firstName" placeholder="First Name" required title="FirstName" />
                 </fieldset>
                 <fieldset class="form-group">
-                    <input type="text" data-ng-model="newcontact.lastName" placeholder="Last Name" required title="LastName" />
+                    <input type="text" class="form-control"  data-ng-model="newcontact.lastName" placeholder="Last Name" required title="LastName" />
                 </fieldset>
                 <fieldset class="form-group">
                     <input type="email" class="form-control" ng-model="newcontact.email" placeholder="jimmyDean@example.org" title="Email" required />
                 </fieldset>
                 <fieldset class="form-group">
-                    <md-datepicker ng-model="newcontact.birthay"></md-datepicker>
-
+                           <input type="text"
+                           class="form-control date"
+                           id="dateFrom"
+                           placeholder="BirthDate..to be done"
+                           ng-click="demo.dateFrom=true"
+                           datepicker-popup="{{demo.format}}"
+                           ng-model="demo.dtFrom"
+                           is-open="demo.dateFrom"
+                           min-date="minDate"
+                           max-date="'2015-06-22'"
+                           datepicker-options="demo.dateOptions"
+                           date-disabled="disabled(date, mode)"
+                           ng-required="true"
+                           close-text="Close">
                 </fieldset>
 
                 <fieldset class="form-group">

@@ -1,0 +1,17 @@
+﻿<div class="container">
+    <h2>Contacts Application</h2>
+    <hr />
+    <strong class="error">{{ error }}</strong>
+
+    <div id="mydiv" data-ng-show="loading">
+        <img src="../Images/loading.gif" class="ajax-loader" />
+    </div>
+
+    <p><a ng-click="toggleAdd()" class="btn btn-primary">Add New Contact</a></p>
+
+    <addcontactpopup></addcontactpopup>
+    <!--<contact-add></contact-add>-->
+
+    <contact-list></contact-list>
+
+</div>

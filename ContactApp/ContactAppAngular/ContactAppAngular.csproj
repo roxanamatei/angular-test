@@ -150,9 +150,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\ContactsController.cs" />
-    <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
-    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,9 +158,6 @@
     <Compile Include="Models\Contact\Contact.cs" />
     <Compile Include="Models\Contact\ContactContext.cs" />
     <Compile Include="Models\Contact\ContactRepository.cs" />
-    <Compile Include="Models\Customer\Customer.cs" />
-    <Compile Include="Models\Customer\CustomerContext.cs" />
-    <Compile Include="Models\Customer\CustomerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,15 +170,15 @@
     <Content Include="Content\images\icon-er-close.png" />
     <Content Include="Content\images\pencil_14px.png" />
     <Content Include="Content\images\save_icon.gif" />
-    <Content Include="Content\js\app\contactModule.js" />
-    <Content Include="Content\js\app\Contact\controllers\ContactController.js" />
-    <Content Include="Content\js\app\Contact\directives\add-popup.js" />
-    <Content Include="Content\js\app\Contact\directives\contactGrid.js" />
-    <Content Include="Content\js\app\Contact\factories\contactFactory.js" />
-    <Content Include="Content\js\app\Contact\modules\contacts.js" />
-    <Content Include="Content\js\app\Customer\Controlller\CustomerController.js" />
-    <Content Include="Content\Templates\contact-add.html" />
-    <Content Include="Content\Templates\contact-list.html" />
+    <Content Include="Modules\Contact\contactModule.js" />
+    <Content Include="Modules\Contact\controllers\ContactController.js" />
+    <Content Include="Modules\Contact\directives\addPopup.js" />
+    <Content Include="Modules\Contact\directives\contactGrid.js" />
+    <Content Include="Modules\Contact\factories\contactFactory.js" />
+    <Content Include="Modules\Contact\directives\contacts.js" />
+    <Content Include="Modules\Contact\templates\ContactAdd.html" />
+    <Content Include="Modules\Contact\templates\ContactList.html" />
+    <Content Include="Modules\Contact\templates\MainLayout.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -238,7 +233,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr\toastr.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\482.gif" />
@@ -246,6 +241,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Scripts\angular-modal-service.js" />
     <Content Include="Scripts\angular-modal-service.min.js" />
+    <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -256,20 +252,18 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\karma.conf.js" />
-    <Content Include="Scripts\modal.css" />
     <Content Include="Scripts\modal.js" />
     <Content Include="Scripts\modal.min.js" />
     <Content Include="Scripts\modal.spec.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\modal.min.js.map" />
-    <Content Include="Scripts\ui-grid.ttf" />
-    <Content Include="Scripts\ui-grid.woff" />
+    <Content Include="Content\ui-grid\ui-grid.ttf" />
+    <Content Include="Content\ui-grid\ui-grid.woff" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-2.2.0.js" />
-    <Content Include="Scripts\ui-grid.css" />
+    <Content Include="Content\ui-grid\ui-grid.css" />
     <Content Include="Scripts\ui-grid.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -278,13 +272,15 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\js\app\Contact\services\" />
+    <Folder Include="Content\bootstrap\" />
+    <Folder Include="Modules\Contact\filters\" />
+    <Folder Include="Modules\Contact\modules\" />
+    <Folder Include="Modules\Contact\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -40,11 +40,8 @@ namespace ContactAppAngular
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
 
-            bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                                    "~/Content/js/runfirst.js",
-                                    "~/Content/js/data/Configuration.js",
-                                    "~/Content/js/app.js").IncludeDirectory(
-                                    "~/Content/js/app", "*.js", true));
+            bundles.Add(new ScriptBundle("~/bundles/app")
+                                    .IncludeDirectory("~/Modules/Contact", "*.js", true));
 
         }
     }

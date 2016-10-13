@@ -102,12 +102,9 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
 
             $scope.$on("clearGridData", function () {
                 $scope.gridOptions.data.length = 0;
-                //$scope.gridOptions.columnDefs.length = 0;
             });
 
-
             $scope.editContact = function (entity) {
-                debugger;
                 $scope.loading = true;
                 var cust = entity;
                 contactFactory.updateContact(cust).success(function (data) {
@@ -136,7 +133,6 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                 var currentContact = entity;
 
                 contactFactory.deleteContact(currentContact).success(function (data) {
-                    debugger;
                     toastr.success("Deleted Successfully!!");
                     $scope.$broadcast("clearGridData");
                     reloadContacts();

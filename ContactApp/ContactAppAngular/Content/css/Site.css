@@ -52,19 +52,6 @@
     content: " ";
 }
 
-/*.myGrid {
-
-width: 900px;
-
-height: 800px;
-
-}
-
-    .grid {
-      width:900px;
-      height: 500px;
-    }*/
-
 .gridStyleContact {
     width: 100%;
 }
@@ -74,17 +61,15 @@ height: 800px;
     text-decoration: underline;
 }
 
-/*.ui-grid-header-canvas{
-    background-color: whitesmoke;
-}*/
-/*.ui-grid-top-panel{
-    color: black;
-}*/
-
 .clear {
     clear: both;
 }
 
-/*.body {
-    background-color: #f3f9fe;
-}*/
+.datepickerdemo md-content {
+            padding-bottom: 200px; 
+         }
+        .datepickerdemo .validation-messages {
+            font-size: 11px;
+            color: darkred;
+            margin: 10px 0 0 25px; 
+         }

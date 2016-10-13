@@ -12,9 +12,8 @@
             };
 
             $scope.$on("openAddContactPopup", function () {
-                debugger;
                var modal = $uibModal.open({
-                    templateUrl: "../Content/Templates/contact-add.html",
+                    templateUrl: "../Modules/Contact/templates/ContactAdd.html",
                     scope: $scope,
                     controller: ModalInstanceController,
                     windowClass: "app-modal-window"
@@ -27,7 +26,6 @@
     function ModalInstanceController($scope, $uibModalInstance) {
 
         var closeModal = function () {
-            debugger;
                 $uibModalInstance.dismiss("cancel");
             };
 
