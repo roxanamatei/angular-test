@@ -69,6 +69,19 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         }
                     },
                     {
+                        field: "birthay",
+                        displayName: "Birthdate",
+                        enableCellEdit: true,
+                        enableSorting: true,
+                        enableColumnMenu: false,
+                        type: 'date', 
+                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD | date:'yyyy MMM dd'}}</span></div>",
+                        cellFilter: 'date:\'yyyy-MM-dd\'',
+                        sort: {
+                            direction: uiGridConstants.ASC
+                        }
+                    },
+                    {
                         field: "actions",
                         displayName: "",
                         pinnedLeft: true,

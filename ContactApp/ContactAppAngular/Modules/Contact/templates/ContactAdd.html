@@ -9,42 +9,39 @@
 
             <form name="addContact" novalidate>
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" data-ng-model="newcontact.firstName" placeholder="First Name" required title="FirstName" />
+                    <input type="text" class="form-control entity-normal" data-ng-model="newcontact.firstName" placeholder="First Name" required title="FirstName" />
                 </fieldset>
                 <fieldset class="form-group">
-                    <input type="text" class="form-control"  data-ng-model="newcontact.lastName" placeholder="Last Name" required title="LastName" />
+                    <input type="text" class="form-control entity-normal" data-ng-model="newcontact.lastName" placeholder="Last Name" required title="LastName" />
                 </fieldset>
                 <fieldset class="form-group">
-                    <input type="email" class="form-control" ng-model="newcontact.email" placeholder="jimmyDean@example.org" title="Email" required />
+                    <input type="email" class="form-control entity-normal" ng-model="newcontact.email" placeholder="jimmyDean@example.org" title="Email" required />
                 </fieldset>
                 <fieldset class="form-group">
-                           <input type="text"
-                           class="form-control date"
-                           id="dateFrom"
-                           placeholder="BirthDate..to be done"
-                           ng-click="demo.dateFrom=true"
-                           datepicker-popup="{{demo.format}}"
-                           ng-model="demo.dtFrom"
-                           is-open="demo.dateFrom"
-                           min-date="minDate"
-                           max-date="'2015-06-22'"
-                           datepicker-options="demo.dateOptions"
-                           date-disabled="disabled(date, mode)"
-                           ng-required="true"
-                           close-text="Close">
+  
+                    <div >
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <datepicker date-options="dateOptions" ng-model="newcontact.birthay"
+                                            opened="opened" />
+                            </div>
+                        </div>
+                    </div>
+
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <textarea class="form-control" ng-model="reviewCtrl.review.body" placeholder="Write a short description of the contact..." title="Description" required></textarea>
+                    <textarea class="form-control" ng-model="newcontact.description" placeholder="Write a short description of the contact..." title="Description" required></textarea>
                 </fieldset>
-               
+            </form>
+
         </div>
         <div class="modal-footer">
             <fieldset class="form-group">
             <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
             <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
             </fieldset>
-            </form>
+
         </div>
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->

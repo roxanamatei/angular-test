@@ -30,7 +30,7 @@ namespace ContactAppAngular.Models
 
         [StringLength(100)]
         public string State { get; set; }
-        DateTime Birthay { get; set; }
+        public DateTime? Birthay { get; set; }
 
         [StringLength(100)]
         public string Gender { get; set; }

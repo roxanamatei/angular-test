@@ -42,17 +42,33 @@ namespace ContactAppAngular.Controllers
 
         // POST api/<controller>
         public Contact Post(Contact contact)
-        {
-            return _contacts.Add(contact);
+        {  
+            Contact c = new Contact();
+            try
+            {
+                contact.Birthay = DateTime.Today;
+                c = _contacts.Add(contact);
+            }
+            catch (Exception ex)
+            {
 
+            }
+
+            return c;
         }
 
         // PUT api/<controller>/5
         public Contact Put(Contact contact)
         {
+            try
+            {
             if (!_contacts.Update(contact))
                 throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            catch (Exception ex)
+            {
 
+            }
             return contact;
 
         }

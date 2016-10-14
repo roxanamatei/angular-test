@@ -73,3 +73,25 @@
             color: darkred;
             margin: 10px 0 0 25px; 
          }
+
+.entity-datepicker {
+    width: 205px !important;
+    padding: 4px 6px !important;
+}
+
+.entity-normal {
+    width: 205px !important;
+    /*padding: 4px 6px !important;*/
+}
+
+.input-date-picker:hover {
+    cursor: pointer;
+}
+
+.display-filter-wrap .date-pick-wrap .input-date-picker {
+    width: 206px;
+    height: 20px;
+    padding: 4px 6px;
+}
+
+

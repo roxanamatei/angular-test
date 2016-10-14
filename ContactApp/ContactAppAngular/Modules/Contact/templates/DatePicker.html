@@ -1,0 +1,16 @@
+﻿<p class="input-group entity-normal">
+    <input type="text" class="form-control  "
+           uib-datepicker-popup=""
+           ng-model="newcontact.birthay"
+           is-open="opened"
+           min="minDate"
+           datepicker-options="dateOptions"
+           date-disabled="disabled(date, mode)"
+           ng-required="true"
+           close-text="Close"
+           placeholder="{{'Birthday'}}" />
+    <span class="input-group-btn">
+        <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+</p>
+

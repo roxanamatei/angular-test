@@ -7,6 +7,7 @@ contactModule.factory('contactFactory', function ($http) {
             return $http.get(apiUrl);
         },
         addContact: function (contact) {
+            debugger;
             return $http.post(apiUrl, contact);
         },
         deleteContact: function (contact) {

@@ -31,6 +31,7 @@
     };
 
     $scope.add = function () {
+        debugger;
         $scope.loading = true;
         contactFactory.addContact(this.newcontact).success(function (data) {
             toastr.success("Added Successfully!!");
@@ -67,6 +68,7 @@
     //get all Contacts- Self Calling -On load
     contactFactory.getContacts().success(function (data) {
         $scope.contacts = data;
+        debugger;
         $scope.totalCount = $scope.contacts.totalCount;
         $scope.loading = false;
     })
@@ -74,6 +76,17 @@
         $scope.error = "An Error has occurred while loading posts! " + data.ExceptionMessage;
         $scope.loading = false;
     });
+
+
+    //$scope.formData = {};
+    //$scope.formData.date = "";
+    $scope.opened = false;
+
+        //Datepicker
+    $scope.dateOptions = {
+        'year-format': "'yy'",
+        'show-weeks': false
+    };
 
 }]);
 
