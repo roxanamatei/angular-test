@@ -18,12 +18,13 @@
         return {
             restrict: "E",
             scope: {
-                ngModel: "=",
                 dateOptions: "=",
                 opened: "=",
+                birthday : "="
             },
             link: function ($scope, element, attrs) {
                 $scope.open = function (event) {
+                    debugger;
                     console.log("open");
                     event.preventDefault();
                     event.stopPropagation();
@@ -31,7 +32,8 @@
                 };
 
                 $scope.clear = function () {
-                    $scope.ngModel = null;
+                    debugger;
+                    $scope.birthday = null;
                 };
             },
             templateUrl: '../Modules/Contact/templates/DatePicker.html'

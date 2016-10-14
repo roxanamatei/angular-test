@@ -172,7 +172,6 @@
     <Content Include="Content\images\save_icon.gif" />
     <Content Include="Modules\Contact\contactModule.js" />
     <Content Include="Modules\Contact\controllers\ContactController.js" />
-    <Content Include="Modules\Contact\controllers\DatePickerController.js" />
     <Content Include="Modules\Contact\directives\addPopup.js" />
     <Content Include="Modules\Contact\directives\contactGrid.js" />
     <Content Include="Modules\Contact\factories\contactFactory.js" />

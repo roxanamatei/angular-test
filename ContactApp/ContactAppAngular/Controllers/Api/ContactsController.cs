@@ -46,7 +46,7 @@ namespace ContactAppAngular.Controllers
             Contact c = new Contact();
             try
             {
-                contact.Birthay = DateTime.Today;
+                //contact.Birthay = DateTime.Today;
                 c = _contacts.Add(contact);
             }
             catch (Exception ex)

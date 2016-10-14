@@ -18,17 +18,18 @@
                     <input type="email" class="form-control entity-normal" ng-model="newcontact.email" placeholder="jimmyDean@example.org" title="Email" required />
                 </fieldset>
                 <fieldset class="form-group">
-                    <select class="form-control entity-normal" ng-model="newcontact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender" required></select>
+                    <select class="form-control entity-normal" ng-model="newcontact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender"></select>
                     <option value="" selected disabled>Choose Gender</option>
                 </fieldset>
                 <fieldset class="form-group">
                     <div >
                         <div class="row">
                             <div class="col-sm-8">
-                                <datepicker date-options="dateOptions" ng-model="newcontact.birthay" opened="opened" />
+                                <datepicker date-options="dateOptions" opened="opened" />
                             </div>
                         </div>
                     </div>
+        
                 </fieldset>
 
                 <fieldset class="form-group">
@@ -39,8 +40,8 @@
         </div>
         <div class="modal-footer">
             <fieldset class="form-group">
-            <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
-            <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
+                <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" uib-tooltip="Save Contact" />
+                <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" uib-tooltip="Contact will not be saved" />
             </fieldset>
 
         </div>

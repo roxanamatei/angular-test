@@ -29,6 +29,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         enableFiltering: false,
                         enableSorting: true,
                         enableColumnMenu: false,
+                        enableCellEdit: false,
                         cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD}}</span></div>",
                         sort: {
                             direction: uiGridConstants.ASC
@@ -98,6 +99,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         pinnedLeft: true,
                         enableFiltering: false,
                         enableColumnMenu: false,
+                        enableCellEdit: false,
                         width: 60,
                         footerCellTemplate: "<div class=\"cell-contents ui-grid-cell-contents\" col-index=\"renderIndex\"></div>",
                         cellTemplate: "<div class=\"ui-grid-cell-contents\">" +
