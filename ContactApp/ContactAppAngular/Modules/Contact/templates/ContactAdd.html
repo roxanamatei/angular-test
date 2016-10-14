@@ -18,16 +18,17 @@
                     <input type="email" class="form-control entity-normal" ng-model="newcontact.email" placeholder="jimmyDean@example.org" title="Email" required />
                 </fieldset>
                 <fieldset class="form-group">
-  
+                    <select class="form-control entity-normal" ng-model="newcontact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender" required></select>
+                    <option value="" selected disabled>Choose Gender</option>
+                </fieldset>
+                <fieldset class="form-group">
                     <div >
                         <div class="row">
                             <div class="col-sm-8">
-                                <datepicker date-options="dateOptions" ng-model="newcontact.birthay"
-                                            opened="opened" />
+                                <datepicker date-options="dateOptions" ng-model="newcontact.birthay" opened="opened" />
                             </div>
                         </div>
                     </div>
-
                 </fieldset>
 
                 <fieldset class="form-group">

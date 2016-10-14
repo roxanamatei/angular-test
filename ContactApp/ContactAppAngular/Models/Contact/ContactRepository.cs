@@ -56,6 +56,10 @@ namespace ContactAppAngular.Models
             newContact.Email = item.Email;
             newContact.FirstName = item.FirstName;
             newContact.LastName = item.LastName;
+            newContact.Description = item.Description;
+            newContact.Birthay = item.Birthay;
+            newContact.Gender = item.Gender;
+
             _db.SaveChanges();
             return true;
         }

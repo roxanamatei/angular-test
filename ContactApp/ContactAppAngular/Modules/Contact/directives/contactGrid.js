@@ -69,13 +69,24 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         }
                     },
                     {
+                        field: "gender",
+                        displayName: "Gender",
+                        enableCellEdit: true,
+                        enableSorting: true,
+                        enableColumnMenu: false,
+                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD}}</span></div>",
+                        sort: {
+                            direction: uiGridConstants.ASC
+                        }
+                    },
+                    {
                         field: "birthay",
                         displayName: "Birthdate",
                         enableCellEdit: true,
                         enableSorting: true,
                         enableColumnMenu: false,
                         type: 'date', 
-                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD | date:'yyyy MMM dd'}}</span></div>",
+                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD | date:'yyyy-MMM-dd'}}</span></div>",
                         cellFilter: 'date:\'yyyy-MM-dd\'',
                         sort: {
                             direction: uiGridConstants.ASC
@@ -120,6 +131,8 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
             $scope.editContact = function (entity) {
                 $scope.loading = true;
                 var cust = entity;
+                cust.birthay = new Date(cust.birthay);
+                debugger;
                 contactFactory.updateContact(cust).success(function (data) {
                     toastr.success("\"" + entity.firstName + "\" was edited successfully.");
                     cust.editMode = false;
