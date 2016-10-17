@@ -10,7 +10,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
             totalCount: "=",
             periodList: "="
         },
-        controller: function ($scope, contactFactory) {
+        controller: function ($scope, $rootScope, contactFactory) {
 
             $scope.gridOptions = {
                 data: "gridData",
@@ -103,7 +103,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         width: 60,
                         footerCellTemplate: "<div class=\"cell-contents ui-grid-cell-contents\" col-index=\"renderIndex\"></div>",
                         cellTemplate: "<div class=\"ui-grid-cell-contents\">" +
-                            "<img class=\"cursor pull-left\" src=\"../Content/images/save_icon.gif\" ng-click=\"grid.appScope.editContact(row.entity)\"></img>" +
+                            "<img class=\"cursor pull-left\" src=\"../Content/images/save_icon.gif\" ng-click=\"grid.appScope.saveContact(row.entity)\"></img>" +
                             "<img class=\"cursor pull-left\" src=\"../Content/images/pencil_14px.png\" ng-click=\"grid.appScope.editContact(row.entity)\"></img>" +
                             "<img class=\"cursor pull-right\" src=\"../Content/images/icon-er-close.png\" ng-click=\"grid.appScope.removeContact(row.entity)\"></img>" +
                             "</div>"
@@ -135,14 +135,24 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                 var cust = entity;
                 cust.birthay = new Date(cust.birthay);
                 debugger;
+               
+                $rootScope.$broadcast("openAddContactPopup");
+                $rootScope.editContactModel(entity);
+            };
+
+            $scope.saveContact = function (entity) {
+                $scope.loading = true;
+                var cust = entity;
+                cust.birthay = new Date(cust.birthay);
                 contactFactory.updateContact(cust).success(function (data) {
-                    toastr.success("\"" + entity.firstName + "\" was edited successfully.");
+                    toastr.success("\"" + entity.firstName + "\" was saved successfully.");
                     cust.editMode = false;
                     $scope.loading = false;
                 }).error(function (data) {
                     $scope.error = "An Error has occurred while Saving contact! " + data.ExceptionMessage;
                     $scope.loading = false;
                 });
+
             };
 
             var reloadContacts = function () {

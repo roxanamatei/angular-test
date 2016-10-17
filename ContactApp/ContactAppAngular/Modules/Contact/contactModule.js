@@ -3,7 +3,30 @@ contactModule.value("$", $);
 
 var mainTemplateUrl = "../Modules/Contact/templates/MainLayout.html";
 
+//contactModule.value('routeUrls', routeUrls);
+
 contactModule.config(["$routeProvider", function ($routeProvider) {
+
+    //var templateUrls = {
+    //    contacts: {
+    //        editor: templatesFolder + 'Contact/ViewEditContact.html'
+    //    }
+    //};
+
+    //var urlPaths = {
+    //    add: '/mode/:modeType?',
+    //    view_edit: '/id/:contactId?/mode/:modeType?',
+    //    search: '/s/:searchText?/sort/:sortBy?/:sortAscending?/status/:selectedStatusFilter?'
+    //};
+
+    //var routes = {
+    //    contacts: {
+    //        editor: {
+    //            templateUrl: templateUrls.contacts.editor,
+    //            controller: 'ContactEditorController'
+    //        }
+    //    }
+    //};
 
 $routeProvider.
  when('/', {

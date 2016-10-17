@@ -1,28 +1,50 @@
 ﻿(function () {
 
-    contactModule.controller('ContactsController', ['$scope', 'contactFactory', function ($scope, contactFactory) {
+    contactModule.controller('ContactsController', ['$scope', '$rootScope', 'contactFactory', function ($scope,$rootScope, contactFactory) {
     $scope.contacts = [];
     $scope.loading = true;
-    $scope.addMode = false;
+    $scope.addMode = true;
 
     $scope.toggleedit = function () {
         this.contact.editMode = !this.contact.editMode;
     };
-    $scope.toggleAdd = function () {
-        $scope.addMode = !$scope.addMode;
-        if ($scope.addMode === true)
-            $scope.$broadcast("openAddContactPopup");
-        else
-            $scope.$broadcast("closeModal");
+
+    $scope.clear = function () {
+        debugger;
+        if (this.newcontact == undefined) return;
+
+        this.newcontact.firstName = "";
+        this.newcontact.lastName = "";
+        this.newcontact.email = "";
+        this.newcontact.gender = "";
+        this.newcontact.birthay = "";
+        this.newcontact.description = "";
+    };
+
+    $scope.openAdd = function () {
+        $scope.addMode = true;
+        $scope.clear();
+        $rootScope.$broadcast("openAddContactPopup");
+    };
+
+    $scope.closeModal = function () {
+        $scope.$broadcast("closeModal");
+    };
+
+    $rootScope.editContactModel = function (obj) {
+        this.newcontact = angular.copy(obj);
+        $scope.addMode = false;
     };
 
     $scope.save = function () {
+        debugger;
         $scope.loading = true;
-        var cust = this.contact;
+        var cust = this.newcontact;
         contactFactory.updateContact(cust).success(function (data) {
             toastr.success("Saved Successfully!!");
             cust.editMode = false;
             $scope.loading = false;
+            $scope.$broadcast("closeModal");
         }).error(function (data) {
             $scope.error = "An Error has occurred while Saving contact! " + data.ExceptionMessage;
             $scope.loading = false;
@@ -31,7 +53,6 @@
     };
 
     $scope.add = function () {
-        debugger;
         $scope.loading = true;
         contactFactory.addContact(this.newcontact).success(function (data) {
             toastr.success("Added Successfully!!");
@@ -77,12 +98,9 @@
         $scope.loading = false;
     });
 
-
-    //$scope.formData = {};
-    //$scope.formData.date = "";
     $scope.opened = false;
 
-        //Datepicker
+    //Datepicker
     $scope.dateOptions = {
         'year-format': "'yy'",
         'show-weeks': false

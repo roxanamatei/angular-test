@@ -11,11 +11,6 @@ namespace ContactAppAngular
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "Customer/api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
 
             config.Routes.MapHttpRoute(
                name: "DefaultContactApi",
@@ -23,13 +18,6 @@ namespace ContactAppAngular
                defaults: new { id = RouteParameter.Optional }
            );
 
-            //config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{action}");
-
-            RouteTable.Routes.MapHttpRoute(
-               name: "GetCustomers",
-               routeTemplate: "Customer/api/Customers",
-               defaults: new { controller = "Customers" }
-           );
 
             RouteTable.Routes.MapHttpRoute(
               name: "GetContacts",

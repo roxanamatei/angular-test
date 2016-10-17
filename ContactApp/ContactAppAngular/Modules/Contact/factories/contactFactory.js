@@ -7,7 +7,6 @@ contactModule.factory('contactFactory', function ($http) {
             return $http.get(apiUrl);
         },
         addContact: function (contact) {
-            debugger;
             contact.birthay = new Date(contact.birthay);
             return $http.post(apiUrl, contact);
         },

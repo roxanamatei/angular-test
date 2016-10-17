@@ -5,27 +5,29 @@
 
     return {
         restrict: "E",
-        controller: function ($scope, $uibModal) {
+        controller: function ($scope, $rootScope, $uibModal) {
             
             var confirmUnsavedChanges = function () {
                 return confirm("There are unsaved changes - would you like to save them?");
             };
 
-            $scope.$on("openAddContactPopup", function () {
+            $rootScope.$on("openAddContactPopup", function () {
+                debugger;
                var modal = $uibModal.open({
                     templateUrl: "../Modules/Contact/templates/ContactAdd.html",
                     scope: $scope,
                     controller: ModalInstanceController,
                     windowClass: "app-modal-window"
-                });
+               });
             });
         }
     }
     });
 
-    function ModalInstanceController($scope, $uibModalInstance) {
+    function ModalInstanceController($scope, $rootScope, $uibModalInstance) {
 
         var closeModal = function () {
+            debugger;
                 $uibModalInstance.dismiss("cancel");
             };
 
