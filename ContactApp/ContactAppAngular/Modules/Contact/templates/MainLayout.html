@@ -1,6 +1,6 @@
-﻿<div class="container">
-    <h2>Contacts Application</h2>
-    <hr />
+﻿<contact-header></contact-header>
+<div class="container">
+
     <strong class="error">{{ error }}</strong>
 
     <div id="mydiv" data-ng-show="loading">
@@ -10,8 +10,12 @@
     <p><a ng-click="openAdd()" class="btn btn-primary">&#9998; Add New Contact</a></p>
 
     <addcontactpopup></addcontactpopup>
-    <!--<contact-add></contact-add>-->
-
+ 
     <contact-list></contact-list>
+
+    <hr />
+    <p>&copy;2016</p>
+
+    <!--<a ng-href='#view'>Contact Details.. to be done</a></td>-->
 
 </div>

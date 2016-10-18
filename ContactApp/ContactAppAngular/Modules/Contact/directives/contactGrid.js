@@ -22,20 +22,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                 enableHorizontalScrollbar: uiGridConstants.scrollbars.NEVER,
                 enableVerticalScrollbar: uiGridConstants.scrollbars.WHEN_NEEDED,
                 columnDefs: [
-
-                    {
-                        field: "id",
-                        displayName: "Contact ID",
-                        enableFiltering: false,
-                        enableSorting: true,
-                        enableColumnMenu: false,
-                        enableCellEdit: false,
-                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD}}</span></div>",
-                        sort: {
-                            direction: uiGridConstants.ASC
-                        }
-
-                    },
+                   
                     {
                         field: "firstName",
                         displayName: "First Name",
@@ -70,6 +57,19 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         }
                     },
                     {
+                        field: "phoneNumber",
+                        displayName: "Phone Number",
+                        enableFiltering: true,
+                        enableSorting: true,
+                        enableColumnMenu: false,
+                        enableCellEdit: true,
+                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\">{{COL_FIELD|tel}}</span></div>",
+                        sort: {
+                            direction: uiGridConstants.ASC
+                        }
+
+                    },
+                    {
                         field: "gender",
                         displayName: "Gender",
                         enableCellEdit: true,
@@ -100,12 +100,14 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         enableFiltering: false,
                         enableColumnMenu: false,
                         enableCellEdit: false,
-                        width: 60,
+                        width: 80,
                         footerCellTemplate: "<div class=\"cell-contents ui-grid-cell-contents\" col-index=\"renderIndex\"></div>",
                         cellTemplate: "<div class=\"ui-grid-cell-contents\">" +
-                            "<img class=\"cursor pull-left\" src=\"../Content/images/save_icon.gif\" ng-click=\"grid.appScope.saveContact(row.entity)\"></img>" +
-                            "<img class=\"cursor pull-left\" src=\"../Content/images/pencil_14px.png\" ng-click=\"grid.appScope.editContact(row.entity)\"></img>" +
-                            "<img class=\"cursor pull-right\" src=\"../Content/images/icon-er-close.png\" ng-click=\"grid.appScope.removeContact(row.entity)\"></img>" +
+                            "<img class=\"cursor pull-left\" src=\"../Content/images/save_icon.gif\" ng-click=\"grid.appScope.saveContact(row.entity)\" uib-tooltip=\"Save changes\"></img>" +
+                            "<img class=\"cursor pull-left\" src=\"../Content/images/pencil_14px.png\" ng-click=\"grid.appScope.editContact(row.entity)\" uib-tooltip=\"Edit\"></img>" +
+                            "<a ng-href='#/details/{{row.entity.id}}'>" +
+                            "<img alt=\"some_text\" class=\"cursor pull-right details\" src=\"../Content/images/detail.png\" ></a>" +
+                            "<img class=\"cursor pull-right details\" src=\"../Content/images/icon-er-close.png\" ng-click=\"grid.appScope.removeContact(row.entity)\"></img>" +
                             "</div>"
                     }
 

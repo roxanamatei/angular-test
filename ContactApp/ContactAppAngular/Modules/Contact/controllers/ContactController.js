@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    contactModule.controller('ContactsController', ['$scope', '$rootScope', 'contactFactory', function ($scope,$rootScope, contactFactory) {
+    contactModule.controller('ContactsController', ['$scope', '$rootScope', 'contactFactory', function ($scope, $rootScope, contactFactory) {
     $scope.contacts = [];
     $scope.loading = true;
     $scope.addMode = true;
@@ -19,6 +19,7 @@
         this.newcontact.gender = "";
         this.newcontact.birthay = "";
         this.newcontact.description = "";
+        this.newcontact.phoneNumber = "";
     };
 
     $scope.openAdd = function () {
@@ -29,11 +30,14 @@
 
     $scope.closeModal = function () {
         $scope.$broadcast("closeModal");
+        $scope.loading = false;
+
     };
 
     $rootScope.editContactModel = function (obj) {
         this.newcontact = angular.copy(obj);
         $scope.addMode = false;
+        $scope.loading = false;
     };
 
     $scope.save = function () {
@@ -41,6 +45,7 @@
         $scope.loading = true;
         var cust = this.newcontact;
         contactFactory.updateContact(cust).success(function (data) {
+            debugger;
             toastr.success("Saved Successfully!!");
             cust.editMode = false;
             $scope.loading = false;

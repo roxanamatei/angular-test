@@ -2,12 +2,10 @@
 <div>
     <div class="modal-content">
         <div class="modal-header">
-            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
             <h4 ng-show="addMode" class="modal-title">Add Contact</h4>
             <h4 ng-hide="addMode" class="modal-title">Edit Contact</h4>
         </div>
         <div class="modal-body">
-
             <form name="addContact" novalidate>
                 <fieldset class="form-group">
                     <input type="text" class="form-control entity-normal" data-ng-model="newcontact.firstName" placeholder="First Name" required title="FirstName" />
@@ -19,33 +17,35 @@
                     <input type="email" class="form-control entity-normal" ng-model="newcontact.email" placeholder="jimmyDean@example.org" title="Email" required />
                 </fieldset>
                 <fieldset class="form-group">
-                    <select class="form-control entity-normal" ng-model="newcontact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender"></select>
-                    <option value="" selected disabled>Choose Gender</option>
+                    <input type="text" class="form-control entity-normal" ng-model="newcontact.phoneNumber" phone-input placeholder="Phone Number" title="PhoneNumber" required />
                 </fieldset>
                 <fieldset class="form-group">
-                    <div >
+                    <select class="form-control entity-normal" ng-model="newcontact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender"></select>
+                    <option value="" disabled class="gender">Choose Gender</option>
+                </fieldset>
+                <fieldset class="form-group">
+                    <div>
                         <div class="row">
-                            <div class="col-sm-8">
+                            <div class="col-sm-8" ng-disabled="true">
                                 <datepicker date-options="dateOptions" opened="opened" />
                             </div>
                         </div>
                     </div>
-        
-                </fieldset>
 
+                </fieldset>
                 <fieldset class="form-group">
-                    <textarea class="form-control" ng-model="newcontact.description" placeholder="Write a short description of the contact..." title="Description" required></textarea>
+                    <textarea class="form-control entity-normal" ng-model="newcontact.description" placeholder="Write a short description of the contact..." title="Description" required></textarea>
                 </fieldset>
             </form>
-
         </div>
         <div class="modal-footer">
             <fieldset class="form-group">
+                <a ng-hide="addMode" class="back" ng-href='#/details/{{newcontact.id}}'>Contact details</a>
                 <input ng-show="addMode"  type="submit" value="&#10004; Add" data-ng-click="add()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
                 <input ng-hide="addMode"  type="submit" value="&#10004; Save Changes" data-ng-click="save()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
                 <input type="button" value="Cancel" data-ng-click="closeModal()" class="btn btn-primary" uib-tooltip="Contact will not be saved" />
             </fieldset>
 
         </div>
-    </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
+    </div>
+</div>

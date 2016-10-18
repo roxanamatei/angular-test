@@ -1,0 +1,30 @@
+﻿<!--<form name="addContact" novalidate>-->
+    <fieldset class="form-group">
+        <input type="text" class="form-control entity-normal" data-ng-model="newcontact.firstName" placeholder="First Name"  title="FirstName" ng-disabled="true" />
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="text" class="form-control entity-normal" data-ng-model="newcontact.lastName" placeholder="Last Name"  title="LastName" ng-disabled="true" />
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="email" class="form-control entity-normal" ng-model="newcontact.email" placeholder="jimmyDean@example.org" title="Email" ng-disabled="true"  />
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="text" class="form-control entity-normal" ng-model="newcontact.phoneNumber" phone-input placeholder="Phone Number" title="PhoneNumber" ng-disabled="true" />
+    </fieldset>
+    <fieldset class="form-group">
+        <select class="form-control entity-normal" ng-model="newcontact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender" ng-disabled="true"></select>
+    </fieldset>
+    <fieldset class="form-group">
+        <div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <datepicker date-options="dateOptions" opened="opened" />
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+    <fieldset class="form-group">
+        <textarea class="form-control entity-normal" ng-model="newcontact.description" placeholder="Write a short description of the contact..." title="Description" ng-disabled="true"></textarea>
+    </fieldset>
+<!--</form>-->

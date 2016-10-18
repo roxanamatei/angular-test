@@ -174,11 +174,17 @@
     <Content Include="Modules\Contact\controllers\ContactController.js" />
     <Content Include="Modules\Contact\directives\addPopup.js" />
     <Content Include="Modules\Contact\directives\contactGrid.js" />
+    <Content Include="Modules\Contact\directives\phoneInput.js" />
     <Content Include="Modules\Contact\factories\contactFactory.js" />
     <Content Include="Modules\Contact\directives\contacts.js" />
+    <Content Include="Modules\Contact\filters\tel.js" />
+    <Content Include="Modules\Contact\templates\Contact.html" />
     <Content Include="Modules\Contact\templates\ContactAdd.html" />
+    <Content Include="Modules\Contact\templates\ContactDetails.html" />
     <Content Include="Modules\Contact\templates\ContactList.html" />
     <Content Include="Modules\Contact\templates\DatePicker.html" />
+    <Content Include="Modules\Contact\templates\Header.html" />
+    <Content Include="Modules\Contact\templates\List.html" />
     <Content Include="Modules\Contact\templates\MainLayout.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -279,7 +285,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\bootstrap\" />
-    <Folder Include="Modules\Contact\filters\" />
     <Folder Include="Modules\Contact\modules\" />
     <Folder Include="Modules\Contact\services\" />
   </ItemGroup>

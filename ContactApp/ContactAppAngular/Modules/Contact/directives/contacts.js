@@ -13,6 +13,13 @@
             templateUrl: '../Modules/Contact/templates/ContactList.html'
         };
     });
+    contactModule.directive('contactHeader', function () {
+        return {
+            restrict: 'E',//element directive
+            templateUrl: '../Modules/Contact/templates/Header.html'
+        };
+    });
+
 
     contactModule.directive("datepicker", function () {
         return {

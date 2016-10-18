@@ -80,7 +80,7 @@
 }
 
 .entity-normal {
-    width: 205px !important;
+    width: 350px !important;
     /*padding: 4px 6px !important;*/
 }
 
@@ -94,4 +94,51 @@
     padding: 4px 6px;
 }
 
+.fileinput-button input {
+  position: static;
+  opacity: 1;
+  filter: none;
+  font-size: inherit;
+  direction: inherit;
+}
+.fileinput-button span {
+  display: none;
+}
 
+.bg-gray {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 0 25px -7px #d7d7d7;
+    margin-bottom: 15px;
+}
+
+.bg-white {
+    background-color: white;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 0 25px -7px #d7d7d7;
+}
+
+.app-title {
+    margin-left:20px;
+   font-size: 30px;
+}
+
+.gender{
+    font-size:14px;
+}
+
+#header .menu-item{  
+    float: right;
+    width: 450px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.back{
+     float: left;
+     font-size: 20px;
+}
+
+.pull-right.details {
+    margin-left: 3px;
+}
