@@ -142,3 +142,7 @@
 .pull-right.details {
     margin-left: 3px;
 }
+
+.pull-left.details {
+    margin-right: 3px;
+}

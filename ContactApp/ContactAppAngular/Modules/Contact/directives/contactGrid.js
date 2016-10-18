@@ -100,14 +100,14 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         enableFiltering: false,
                         enableColumnMenu: false,
                         enableCellEdit: false,
-                        width: 80,
+                        width: 85,
                         footerCellTemplate: "<div class=\"cell-contents ui-grid-cell-contents\" col-index=\"renderIndex\"></div>",
                         cellTemplate: "<div class=\"ui-grid-cell-contents\">" +
-                            "<img class=\"cursor pull-left\" src=\"../Content/images/save_icon.gif\" ng-click=\"grid.appScope.saveContact(row.entity)\" uib-tooltip=\"Save changes\"></img>" +
-                            "<img class=\"cursor pull-left\" src=\"../Content/images/pencil_14px.png\" ng-click=\"grid.appScope.editContact(row.entity)\" uib-tooltip=\"Edit\"></img>" +
-                            "<a ng-href='#/details/{{row.entity.id}}'>" +
-                            "<img alt=\"some_text\" class=\"cursor pull-right details\" src=\"../Content/images/detail.png\" ></a>" +
-                            "<img class=\"cursor pull-right details\" src=\"../Content/images/icon-er-close.png\" ng-click=\"grid.appScope.removeContact(row.entity)\"></img>" +
+                            "<img class=\"cursor pull-left details\" src=\"../Content/images/save_icon.gif\" ng-click=\"grid.appScope.saveContact(row.entity)\" uib-tooltip=\"Save changes\"></img>" +
+                            "<img class=\"cursor pull-left details\" src=\"../Content/images/pencil_14px.png\" ng-click=\"grid.appScope.editContact(row.entity)\" uib-tooltip=\"Edit\"></img>" +
+                            "<a ng-href='#/details/{{row.entity.id}}/mode/view?'>" +
+                            "<img alt=\"some_text\" class=\"cursor pull-right details\" src=\"../Content/images/detail.png\"  uib-tooltip=\"Details\"></a>" +
+                            "<img class=\"cursor pull-right details\" src=\"../Content/images/icon-er-close.png\" ng-click=\"grid.appScope.removeContact(row.entity)\" uib-tooltip=\"Remove\"></img>" +
                             "</div>"
                     }
 

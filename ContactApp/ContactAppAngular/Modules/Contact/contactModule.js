@@ -1,5 +1,6 @@
 ﻿var contactModule = angular.module('contact', ['ui.bootstrap', 'ui.grid', 'ui.grid.edit', 'ui.grid.cellNav', 'ngRoute']);
 contactModule.value("$", $);
+contactModule.value('modeTypes', { view: 'view', edit: 'edit', add: 'add' });
 
 var mainTemplateUrl = "../Modules/Contact/templates/MainLayout.html";
 var contactDetailsUrl = '../Modules/Contact/templates/ContactDetails.html';
@@ -12,8 +13,8 @@ $routeProvider.
      controller: "ContactsController",
      templateUrl: mainTemplateUrl
  }).
- when('/details/:id', {
-     controller: "ContactsController",
+ when('/details/:id?/mode/:modeType?', {
+     controller: "ContactDetailsController",
      templateUrl: contactDetailsUrl
  }).
  otherwise({
@@ -24,3 +25,4 @@ $routeProvider.
 
 
 
+//view_edit: '/id/:employeeId?/mode/:modeType?',

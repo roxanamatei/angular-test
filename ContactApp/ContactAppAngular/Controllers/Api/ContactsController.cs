@@ -33,6 +33,7 @@ namespace ContactAppAngular.Controllers
         // GET api/<controller>/5
         public Contact Get(int id)
         {
+            
             Contact c = _contacts.Get(id);
             if (c == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
