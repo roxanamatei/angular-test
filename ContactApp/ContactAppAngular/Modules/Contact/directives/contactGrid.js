@@ -137,7 +137,6 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                 var cust = entity;
                 cust.birthay = new Date(cust.birthay);
                 debugger;
-               
                 $rootScope.$broadcast("openAddContactPopup");
                 $rootScope.editContactModel(entity);
             };

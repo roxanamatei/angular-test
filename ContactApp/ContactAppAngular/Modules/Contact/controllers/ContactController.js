@@ -10,7 +10,7 @@
     };
 
     $scope.clear = function () {
-        debugger;
+
         if (this.newcontact == undefined) return;
 
         this.newcontact.firstName = "";
@@ -25,6 +25,7 @@
     $scope.openAdd = function () {
         $scope.addMode = true;
         $scope.clear();
+        debugger;
         $rootScope.$broadcast("openAddContactPopup");
     };
 
@@ -41,11 +42,9 @@
     };
 
     $scope.save = function () {
-        debugger;
         $scope.loading = true;
         var cust = this.newcontact;
-        contactFactory.updateContact(cust).success(function (data) {
-            debugger;
+        contactFactory.updateContact(cust).success(function (data) {       
             toastr.success("Saved Successfully!!");
             cust.editMode = false;
             $scope.loading = false;
@@ -94,7 +93,6 @@
     //get all Contacts- Self Calling -On load
     contactFactory.getContacts().success(function (data) {
         $scope.contacts = data;
-        debugger;
         $scope.totalCount = $scope.contacts.totalCount;
         $scope.loading = false;
     })

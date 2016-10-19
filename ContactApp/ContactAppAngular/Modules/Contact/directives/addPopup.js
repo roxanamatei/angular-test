@@ -1,19 +1,19 @@
 ﻿(function () {
 
     contactModule.directive("addcontactpopup", function () {
-    var modal;
-
+        var modal;
     return {
         restrict: "E",
+        animation: false,
         controller: function ($scope, $rootScope, $uibModal) {
-            
+            debugger;
             var confirmUnsavedChanges = function () {
                 return confirm("There are unsaved changes - would you like to save them?");
             };
 
-            $rootScope.$on("openAddContactPopup", function () {
+            $rootScope.$on("openAddContactPopup", function (event) {
                 debugger;
-               var modal = $uibModal.open({
+               modal = $uibModal.open({
                     templateUrl: "../Modules/Contact/templates/ContactAdd.html",
                     scope: $scope,
                     controller: ModalInstanceController,
@@ -28,7 +28,9 @@
 
         var closeModal = function () {
             debugger;
-                $uibModalInstance.dismiss("cancel");
+            $uibModalInstance.dismiss("cancel");
+            $('body').removeClass('modal-open');
+            //$('.modal-backdrop').remove();
             };
 
             $scope.cancel = function () {

@@ -31,7 +31,6 @@
             },
             link: function ($scope, element, attrs) {
                 $scope.open = function (event) {
-                    debugger;
                     console.log("open");
                     event.preventDefault();
                     event.stopPropagation();
@@ -39,7 +38,6 @@
                 };
 
                 $scope.clear = function () {
-                    debugger;
                     $scope.birthday = null;
                 };
             },

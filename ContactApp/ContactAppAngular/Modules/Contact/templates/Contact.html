@@ -1,32 +1,83 @@
 ﻿<!--<form name="addContact" novalidate>-->
-<p>Contact Id: {{model.contactId}}</p>
-    <fieldset class="form-group">
-        <input type="text" class="form-control entity-normal" data-ng-model="contact.firstName" placeholder="First Name" title="FirstName" ng-disabled="true" />
-    </fieldset>
-    <fieldset class="form-group">
-        <input type="text" class="form-control entity-normal" data-ng-model="contact.lastName" placeholder="Last Name" title="LastName" ng-disabled="true" />
-    </fieldset>
-    <fieldset class="form-group">
-        <input type="email" class="form-control entity-normal" ng-model="contact.email" placeholder="jimmyDean@example.org" title="Email" ng-disabled="true" />
-    </fieldset>
-    <fieldset class="form-group">
-        <input type="text" class="form-control entity-normal" ng-model="contact.phoneNumber" phone-input placeholder="Phone Number" title="PhoneNumber" ng-disabled="true" />
-    </fieldset>
-    <fieldset class="form-group">
-        <select class="form-control entity-normal" ng-model="contact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender" ng-disabled="true"></select>
-    </fieldset>
-    <fieldset class="form-group">
-        <div>
-            <div class="row">
-                <div class="col-sm-8">
-                    <datepicker date-options="dateOptions" opened="opened" ng-model="contact.birthay" />
-                </div>
-            </div>
-        </div>
+<div class="panel panel-info">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Contact Details: ID {{model.contactId}}</div>
 
-    </fieldset>
-    <fieldset class="form-group">
-        <textarea class="form-control entity-normal" ng-model="contact.description" placeholder="Write a short description of the contact..." title="Description" ng-disabled="true"></textarea>
-    </fieldset>
+    <!-- Table -->
+    <table class="table">
+        <tr>
+            <td>First Name:</td>
+            <td>{{ contact.firstName }}</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>{{ contact.lastName }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        <tr>
+            <td>Phone Number:</td>
+            <td>{{ contact.phoneNumber }}</td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>{{ contact.gender }}</td>
+        </tr>
+        <tr>
+            <td>Birth Date:</td>
+            <td>{{contact.birthay| date}}</td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>{{ contact.description }}</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>{{ contact.description }}</td>
+        </tr>
 
+    </table>
+
+</div>
+
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">Upload Profile Photo</div>
+    <div class="panel-body">
+        <upload-files-grid url="popupModel.uploadEmployeeDocumentUrl"
+                           query-options="popupModel.queryOptions"
+                           continue-upload-callback="isDocumentTypeSelected()"
+                           on-complete-callback="onUploadComplete(message, isValid)"
+                           focus-first-element="100">
+        </upload-files-grid>
+
+    </div>
+</div>
+
+<!--<fieldset class="form-group">
+    <input type="text" class="form-control entity-normal" data-ng-model="contact.firstName" placeholder="First Name" title="FirstName" ng-disabled="model.isView" />
+</fieldset>
+<fieldset class="form-group">
+    <input type="text" class="form-control entity-normal" data-ng-model="contact.lastName" placeholder="Last Name" title="LastName" ng-disabled="model.isView" />
+</fieldset>
+<fieldset class="form-group">
+    <input type="email" class="form-control entity-normal" ng-model="contact.email" placeholder="jimmyDean@example.org" title="Email" ng-disabled="model.isView" />
+</fieldset>
+<fieldset class="form-group">
+    <input type="text" class="form-control entity-normal" ng-model="contact.phoneNumber" phone-input placeholder="Phone Number" title="PhoneNumber" ng-disabled="model.isView" />
+</fieldset>
+<fieldset class="form-group">
+    <select class="form-control entity-normal" ng-model="contact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender" ng-disabled="model.isView"></select>
+</fieldset>
+<fieldset class="form-group">
+    <div>
+        <p>Birth Date: {{contact.birthay| date}}</p>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <textarea class="form-control entity-normal" ng-model="contact.description" placeholder="Write a short description of the contact..." title="Description" ng-disabled="true"></textarea>
+</fieldset>-->
 <!--</form>-->
