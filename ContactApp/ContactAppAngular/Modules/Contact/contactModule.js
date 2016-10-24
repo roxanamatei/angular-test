@@ -22,7 +22,3 @@ $routeProvider.
  });
 
 }])
-
-
-
-//view_edit: '/id/:employeeId?/mode/:modeType?',

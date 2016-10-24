@@ -128,7 +128,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                 }
             });
 
-            $scope.$on("clearGridData", function () {
+            $scope.$on("clearGridData", function (){
                 $scope.gridOptions.data.length = 0;
             });
 
@@ -136,7 +136,6 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                 $scope.loading = true;
                 var cust = entity;
                 cust.birthay = new Date(cust.birthay);
-                debugger;
                 $rootScope.$broadcast("openAddContactPopup");
                 $rootScope.editContactModel(entity);
             };
@@ -172,6 +171,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                 var currentContact = entity;
 
                 contactFactory.deleteContact(currentContact).success(function (data) {
+
                     toastr.success("Deleted Successfully!!");
                     $scope.$broadcast("clearGridData");
                     reloadContacts();
