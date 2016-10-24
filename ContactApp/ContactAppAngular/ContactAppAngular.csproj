@@ -180,7 +180,6 @@
     <Content Include="Modules\Contact\directives\addPopup.js" />
     <Content Include="Modules\Contact\directives\contactGrid.js" />
     <Content Include="Modules\Contact\directives\phoneInput.js" />
-    <Content Include="Modules\Contact\directives\uploadFilesGrid.js" />
     <Content Include="Modules\Contact\factories\contactFactory.js" />
     <Content Include="Modules\Contact\directives\contacts.js" />
     <Content Include="Modules\Contact\filters\tel.js" />
@@ -251,7 +250,6 @@
     <Content Include="Images\482.gif" />
     <Content Include="Images\loading-circle.gif" />
     <Content Include="Images\loading.gif" />
-    <Content Include="Modules\Contact\templates\UploadFilesGrid.html" />
     <Content Include="Scripts\angular-modal-service.js" />
     <Content Include="Scripts\angular-modal-service.min.js" />
     <Content Include="Scripts\angular-route.js" />

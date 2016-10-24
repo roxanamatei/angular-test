@@ -11,7 +11,8 @@ contactModule.factory('contactFactory', function ($http) {
             return $http.post(apiUrl, contact);
         },
         deleteContact: function (contact) {
-            return $http.get(apiUrl + "/" + contact.id);
+            debugger;
+            return $http.delete(apiUrl + "/" + contact.id);
         },
         getContactById: function (id) {
             return $http.get(apiUrl + "/" + id);
