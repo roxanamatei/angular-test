@@ -183,7 +183,7 @@ tr:hover {
     overflow: hidden;
 }
 
-.btn-file input[type=file] {
+    .btn-file input[type=file] {
         position: absolute;
         top: 0;
         right: 0;
@@ -196,7 +196,7 @@ tr:hover {
         background: red;
         cursor: inherit;
         display: block;
-}
+    }
 
 input[readonly] {
     background-color: white !important;
@@ -214,6 +214,7 @@ input[readonly] {
 
 .ui-grid-row, .ui-grid-cell {
     height: auto !important;
+    width: auto !important;
 }
 
     .ui-grid-row div[role=row] {
