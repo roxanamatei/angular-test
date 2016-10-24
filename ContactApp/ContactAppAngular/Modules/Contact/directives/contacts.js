@@ -27,7 +27,7 @@
             scope: {
                 dateOptions: "=",
                 opened: "=",
-                birthday : "="
+                birthday: "="
             },
             link: function ($scope, element, attrs) {
                 $scope.open = function (event) {
@@ -43,6 +43,29 @@
             },
             templateUrl: '../Modules/Contact/templates/DatePicker.html'
         }
-    })
+    });
+
+    contactModule.directive("fileread", [
+      function () {
+          return {
+              scope: {
+                  fileread: "="
+              },
+              link: function (scope, element, attributes) {
+                  element.bind("change", function (changeEvent) {
+                      debugger;
+                      var reader = new FileReader();
+                      reader.onload = function (loadEvent) {
+                          scope.$apply(function () {
+                              debugger;
+                              scope.fileread = loadEvent.target.result;
+                          });
+                      }
+                      reader.readAsDataURL(changeEvent.target.files[0]);
+                  });
+              }
+          }
+      }
+    ]);
 
 })();

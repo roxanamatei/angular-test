@@ -43,41 +43,19 @@
 </div>
 
 
-
 <div class="panel panel-info">
     <div class="panel-heading">Upload Profile Photo</div>
     <div class="panel-body">
-        <upload-files-grid url="popupModel.uploadEmployeeDocumentUrl"
-                           query-options="popupModel.queryOptions"
-                           continue-upload-callback="isDocumentTypeSelected()"
-                           on-complete-callback="onUploadComplete(message, isValid)"
-                           focus-first-element="100">
-        </upload-files-grid>
-
+        <span class="btn btn-success btn-file">
+            Browse… <input type="file" name="file" fileread="contact.photo">
+        </span>
+        <img src="{{contact.photo}}" width="300" height="300" alt="Image preview...">
+        <br />
+        <p>
+            Image dataURI:
+            <pre>{{contact.photo}}</pre>
+        </p>
+        <br />
+        <button class="btn btn-success btn-file" ng-click="uploadImage(contact.photo)">Upload image</button>
     </div>
 </div>
-
-<!--<fieldset class="form-group">
-    <input type="text" class="form-control entity-normal" data-ng-model="contact.firstName" placeholder="First Name" title="FirstName" ng-disabled="model.isView" />
-</fieldset>
-<fieldset class="form-group">
-    <input type="text" class="form-control entity-normal" data-ng-model="contact.lastName" placeholder="Last Name" title="LastName" ng-disabled="model.isView" />
-</fieldset>
-<fieldset class="form-group">
-    <input type="email" class="form-control entity-normal" ng-model="contact.email" placeholder="jimmyDean@example.org" title="Email" ng-disabled="model.isView" />
-</fieldset>
-<fieldset class="form-group">
-    <input type="text" class="form-control entity-normal" ng-model="contact.phoneNumber" phone-input placeholder="Phone Number" title="PhoneNumber" ng-disabled="model.isView" />
-</fieldset>
-<fieldset class="form-group">
-    <select class="form-control entity-normal" ng-model="contact.gender" ng-options="stars for stars in ['Male', 'Female']" title="Gender" ng-disabled="model.isView"></select>
-</fieldset>
-<fieldset class="form-group">
-    <div>
-        <p>Birth Date: {{contact.birthay| date}}</p>
-    </div>
-</fieldset>
-<fieldset class="form-group">
-    <textarea class="form-control entity-normal" ng-model="contact.description" placeholder="Write a short description of the contact..." title="Description" ng-disabled="true"></textarea>
-</fieldset>-->
-<!--</form>-->

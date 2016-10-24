@@ -161,6 +161,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ContactAppAngular.Models.ContactContext.mdf" />
+    <Content Include="App_Data\ContactAppAngular.Models.ContactContext_log.ldf">
+      <DependentUpon>ContactAppAngular.Models.ContactContext.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
@@ -172,9 +176,11 @@
     <Content Include="Content\images\save_icon.gif" />
     <Content Include="Modules\Contact\contactModule.js" />
     <Content Include="Modules\Contact\controllers\ContactController.js" />
+    <Content Include="Modules\Contact\controllers\ContactDetailsController.js" />
     <Content Include="Modules\Contact\directives\addPopup.js" />
     <Content Include="Modules\Contact\directives\contactGrid.js" />
     <Content Include="Modules\Contact\directives\phoneInput.js" />
+    <Content Include="Modules\Contact\directives\uploadFilesGrid.js" />
     <Content Include="Modules\Contact\factories\contactFactory.js" />
     <Content Include="Modules\Contact\directives\contacts.js" />
     <Content Include="Modules\Contact\filters\tel.js" />
@@ -184,7 +190,6 @@
     <Content Include="Modules\Contact\templates\ContactList.html" />
     <Content Include="Modules\Contact\templates\DatePicker.html" />
     <Content Include="Modules\Contact\templates\Header.html" />
-    <Content Include="Modules\Contact\templates\List.html" />
     <Content Include="Modules\Contact\templates\MainLayout.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -246,6 +251,7 @@
     <Content Include="Images\482.gif" />
     <Content Include="Images\loading-circle.gif" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Modules\Contact\templates\UploadFilesGrid.html" />
     <Content Include="Scripts\angular-modal-service.js" />
     <Content Include="Scripts\angular-modal-service.min.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -285,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\bootstrap\" />
+    <Folder Include="Images\Photos\" />
     <Folder Include="Modules\Contact\modules\" />
     <Folder Include="Modules\Contact\services\" />
   </ItemGroup>
