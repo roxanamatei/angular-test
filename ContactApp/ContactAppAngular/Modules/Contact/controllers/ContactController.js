@@ -9,6 +9,11 @@
         this.contact.editMode = !this.contact.editMode;
     };
 
+    $scope.go = function (path) {
+        debugger;
+        $location.path(path);
+    };
+
     $scope.clear = function () {
 
         if (this.newcontact == undefined) return;

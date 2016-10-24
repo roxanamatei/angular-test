@@ -25,7 +25,14 @@ namespace ContactAppAngular.Models
 
         public IEnumerable<Contact> GetAll()
         {
-            return _db.Contacts;
+            var contacts =  _db.Contacts;
+
+            foreach(var contact in contacts){
+                if(contact.Photo == null)
+                    contact.Photo = "..\\Images\\Photos\\icon-user-default.png";
+            }
+
+            return contacts;
         }
 
         public Contact Get(int id)

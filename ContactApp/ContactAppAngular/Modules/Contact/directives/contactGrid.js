@@ -7,8 +7,6 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
         template: "<div><div class=\"grid\" ui-grid=\"gridOptions\" ui-grid-edit ui-grid-cellnav></div></div>",
         scope: {
             gridData: "=",
-            totalCount: "=",
-            periodList: "="
         },
         controller: function ($scope, $rootScope, contactFactory) {
 
@@ -22,6 +20,14 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                 enableHorizontalScrollbar: uiGridConstants.scrollbars.NEVER,
                 enableVerticalScrollbar: uiGridConstants.scrollbars.WHEN_NEEDED,
                 columnDefs: [
+                       {
+                           field: "photo",
+                           displayName: "Profile Photo",
+                           enableFiltering: false,
+                           enableCellEdit: false,
+                           enableColumnMenu: false,    
+                           cellTemplate: "<div class=\"ui-grid-cell-contents\"><img class =\"img-circle\" src=\"{{COL_FIELD}}\" width=\"50\" height=\"40\" alt=\"X...\">",
+                       },
                    
                     {
                         field: "firstName",

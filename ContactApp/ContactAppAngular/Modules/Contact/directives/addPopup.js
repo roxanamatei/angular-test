@@ -11,7 +11,7 @@
                 return confirm("There are unsaved changes - would you like to save them?");
             };
 
-            $rootScope.$on("openAddContactPopup", function (event) {
+            $scope.$on("openAddContactPopup", function (event) {
                 debugger;
                modal = $uibModal.open({
                     templateUrl: "../Modules/Contact/templates/ContactAdd.html",
