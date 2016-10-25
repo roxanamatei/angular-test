@@ -93,7 +93,7 @@
         'show-weeks': false
     };
 
- //-----Persist Contact-----------------------------------------------------------------------------------------------
+ //-----Persist Contact-----------------------------------------------------------------------------------------------//
     var createAddContactRequest = function () {
         var returnValue = model.newcontact;
         return returnValue;
@@ -151,12 +151,12 @@
          };
 
    
-//-----GetContact list-----------------------------------------------------------------------------------------------
+//-----Get Contact list-----------------------------------------------------------------------------------------------//
 
          var createGetContactListRequest = function () {
            var returnValue = {
-            //skip: model.offset,
-            //take: model.range,
+            skip: model.offset,
+            take: model.range,
         };
         return returnValue;
     };
@@ -182,7 +182,6 @@
 
     var loadContactList = function (successCallback) {
         getContactList(function (response) {
-            debugger;
             if (model.contactList == null) {
                 model.start = 1;
                 if (response.contactList && response.contactList.length > 0) {
@@ -190,10 +189,12 @@
                     $scope.loading = false;
                     debugger;
                     $scope.contacts = response.contactList;
+                    model.totalFilteredCount = response.totalFilteredCount;
                 }
             } else if (response.contactList.length > 0) {
-                debugger;
                 model.contactList = model.contactList.concat(response.contactList);
+                $scope.contacts = model.contactList;
+                model.totalFilteredCount = response.totalFilteredCount;
             }
 
             model.isGridEmpty = model.contactList == null || model.contactList.length == 0;
@@ -204,7 +205,6 @@
     };
 
     $scope.$on('loadMoreContacts', function () {
-        debugger;
         if (model.offset >= model.totalFilteredCount) return;
 
         model.start += 1;

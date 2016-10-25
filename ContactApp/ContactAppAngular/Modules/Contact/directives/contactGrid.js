@@ -4,7 +4,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
     return {
         restrict: "E",
         replace: true,
-        template: "<div><div class=\"grid\" ui-grid=\"gridOptions\" ui-grid-edit ui-grid-cellnav></div></div>",
+        template: "<div><div class=\"grid\" ui-grid=\"gridOptions\" ui-grid-infinite-scroll ui-grid-auto-resize ui-grid-edit ui-grid-cellnav></div></div>",
         scope: {
             gridData: "=",
         },
@@ -148,13 +148,15 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         });
                     });
 
-                    //$scope.gridApi.infiniteScroll.on.needLoadMoreData($scope, function () {
-                    //    $scope.$emit('loadMoreContacts');
-                    //});
+                    $scope.gridApi.infiniteScroll.on.needLoadMoreData($scope, function () {
+                        debugger;
+                        $scope.$emit('loadMoreContacts');
+                    });
                 }
             };
 
             $scope.$on('moreContactsLoaded', function () {
+                debugger;
                 $scope.gridApi.infiniteScroll.dataLoaded();
             });
 

@@ -11,7 +11,7 @@ namespace ContactAppAngular.Controllers
     public class ContactsController : ApiController
     {
         private static readonly IContactRepository _contacts = new ContactRepository();
-        // GET api/<controller>
+   
         public IEnumerable<Contact> Get()
         {
             var result = _contacts.GetAll();
@@ -38,10 +38,10 @@ namespace ContactAppAngular.Controllers
             try
             {
                 var result = _contacts.GetAll().ToList();
-
-                response.ContactList = result;
-                //.Skip(request.Skip).
-                //    Take(request.Take); ;
+                response.TotalFilteredCount = result.Count();
+                response.ContactList = result
+                .Skip(request.Skip).
+                    Take(request.Take); ;
             }
             catch (Exception ex)
             {
@@ -51,7 +51,6 @@ namespace ContactAppAngular.Controllers
             return response;
         }
 
-        // GET api/<controller>/5
         public Contact Get(int id)
         {
 
@@ -62,7 +61,7 @@ namespace ContactAppAngular.Controllers
             return c;
         }
 
-        // POST api/<controller>
+    
         [HttpPost]
         public Contact PersistContact(Contact contact)
         {

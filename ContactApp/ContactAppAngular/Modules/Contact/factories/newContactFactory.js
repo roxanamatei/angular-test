@@ -8,11 +8,9 @@ contactModule.factory('contactManager', function (requestManager) {
 
     return {
         getContactList: function (request) {
-            debugger;
             return ajaxRequest(window.apiUrls.contact.getList, request);
         },
         addContact: function (request) {
-            debugger;
             return ajaxRequest(window.apiUrls.contact.persist, request);
         },
     };
