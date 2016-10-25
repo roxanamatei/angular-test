@@ -17,7 +17,7 @@ contactModule.factory('notifier', function (toastr, $timeout) {
         },
 
         confirmUnsuccessfulLoad: function (message) {
-            return confirm((message || 'Unable to retrieve account information') + ' Please click OK to try again.');
+            return confirm((message || 'Unable to retrieve information') + ' Please click OK to try again.');
         }
     };
 });
