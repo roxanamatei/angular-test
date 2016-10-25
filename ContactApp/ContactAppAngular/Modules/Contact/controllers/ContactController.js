@@ -157,6 +157,7 @@
            var returnValue = {
             skip: model.offset,
             take: model.range,
+            searchText: model.searchText
         };
         return returnValue;
     };
@@ -192,6 +193,7 @@
                     model.totalFilteredCount = response.totalFilteredCount;
                 }
             } else if (response.contactList.length > 0) {
+                debugger;
                 model.contactList = model.contactList.concat(response.contactList);
                 $scope.contacts = model.contactList;
                 model.totalFilteredCount = response.totalFilteredCount;
@@ -215,6 +217,16 @@
         });
     });
 
+    $scope.activateFilter = function (event) {
+        debugger;
+        $scope.model.contactList.length = 0;
+        $scope.model.range= 20,
+        $scope.model.offset = 0,
+        loadContactList(function () {
+            $scope.$broadcast('moreContactsLoaded');
+        });
+    };
+
     var model = {
         isGridEmpty: false,     
         contactList: null,
@@ -222,6 +234,7 @@
         range: 20,
         offset: 0,
         totalFilteredCount: 0,
+        searchText: '',
         newcontact: {}
     };
 

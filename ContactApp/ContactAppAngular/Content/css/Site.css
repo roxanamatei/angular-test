@@ -242,3 +242,12 @@ input[readonly] {
 .grid {
   height: 70vh;
 }
+
+.search {
+    margin-left: 0px !important;
+    padding: 0px !important;
+}
+
+.add-contact{
+    float: right;
+}

@@ -254,6 +254,7 @@
     <Content Include="Images\482.gif" />
     <Content Include="Images\loading-circle.gif" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Modules\Contact\templates\Search.html" />
     <Content Include="Scripts\angular-modal-service.js" />
     <Content Include="Scripts\angular-modal-service.min.js" />
     <Content Include="Scripts\angular-route.js" />

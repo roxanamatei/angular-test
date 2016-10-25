@@ -37,8 +37,18 @@ namespace ContactAppAngular.Controllers
             var response = new GetContactListResponse();
             try
             {
-                var result = _contacts.GetAll().ToList();
+                var result = _contacts.GetAll();
+
+                if (!string.IsNullOrEmpty(request.SearchText))
+                {
+                    result = result.Where(x =>
+                        x.LastName.ToLower().Contains(request.SearchText.ToLower()) ||
+                        x.FirstName.ToLower().Contains(request.SearchText.ToLower()) ||
+                        x.Email.ToLower().Contains(request.SearchText.ToLower())).ToList();
+                }
+
                 response.TotalFilteredCount = result.Count();
+
                 response.ContactList = result
                 .Skip(request.Skip).
                     Take(request.Take); ;

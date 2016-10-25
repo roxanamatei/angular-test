@@ -7,7 +7,9 @@
         <img src="../Images/loading.gif" class="ajax-loader" />
     </div>
 
-    <p><a ng-click="openAdd()" class="btn btn-primary">&#9998; Add New Contact</a></p>
+    <p><a ng-click="openAdd()" class="btn btn-primary add-contact">&#9998; Add New Contact</a></p>
+    
+    <p ng-include="'../Modules/Contact/templates/Search.html'"></p>
 
     <addcontactpopup></addcontactpopup>
  

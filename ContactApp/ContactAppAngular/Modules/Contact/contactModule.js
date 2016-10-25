@@ -19,6 +19,10 @@ $routeProvider.
      controller: "ContactDetailsController",
      templateUrl: contactDetailsUrl
  }).
+ when('/s/:searchText?/sort/:sortBy?/:sortAscending?', {
+     controller: "ContactsController",
+        templateUrl: mainTemplateUrl
+    }).
  otherwise({
      redirectTo: '/'
  });

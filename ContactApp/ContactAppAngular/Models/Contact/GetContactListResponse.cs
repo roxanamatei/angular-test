@@ -5,6 +5,7 @@ namespace ContactAppAngular.Models
     {
         public IEnumerable<Contact> ContactList { get; set; }
 
+        public string SearchText { get; set; }
         public int TotalFilteredCount { get; set; }
 
     }
