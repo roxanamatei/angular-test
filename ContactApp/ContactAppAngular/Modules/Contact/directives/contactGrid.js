@@ -147,8 +147,16 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                             sortColumn.sort.priority = null;
                         });
                     });
+
+                    //$scope.gridApi.infiniteScroll.on.needLoadMoreData($scope, function () {
+                    //    $scope.$emit('loadMoreContacts');
+                    //});
                 }
             };
+
+            $scope.$on('moreContactsLoaded', function () {
+                $scope.gridApi.infiniteScroll.dataLoaded();
+            });
 
             $scope.$watch("gridData", function (newVal) {
                 if (newVal && $scope.gridOptions.data.length > 0) {

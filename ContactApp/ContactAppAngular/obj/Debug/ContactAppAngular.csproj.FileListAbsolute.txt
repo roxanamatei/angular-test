@@ -211,6 +211,6 @@ D:\ANGULAR_LEARNING\ContactApp\ContactAppAngular\bin\ko\System.Spatial.resources
 D:\ANGULAR_LEARNING\ContactApp\ContactAppAngular\bin\ru\System.Spatial.resources.dll
 D:\ANGULAR_LEARNING\ContactApp\ContactAppAngular\bin\zh-Hans\System.Spatial.resources.dll
 D:\ANGULAR_LEARNING\ContactApp\ContactAppAngular\bin\zh-Hant\System.Spatial.resources.dll
-D:\ANGULAR_LEARNING\ContactApp\ContactAppAngular\obj\Debug\ContactAppAngular.csprojResolveAssemblyReference.cache
 D:\ANGULAR_LEARNING\ContactApp\ContactAppAngular\obj\Debug\ContactAppAngular.dll
 D:\ANGULAR_LEARNING\ContactApp\ContactAppAngular\obj\Debug\ContactAppAngular.pdb
+D:\ANGULAR_LEARNING\ContactApp\ContactAppAngular\obj\Debug\ContactAppAngular.csprojResolveAssemblyReference.cache

@@ -1,6 +1,8 @@
 ﻿(function () {
 
-    contactModule.controller('ContactsController', ['$scope', '$rootScope', 'contactFactory', function ($scope, $rootScope, contactFactory) {
+    contactModule.controller('ContactsController', ['$scope', '$rootScope', 'contactFactory', 'contactManager', 'requestManager',
+                                           function ($scope, $rootScope, contactFactory, contactManager, requestManager)
+ {
     $scope.contacts = [];
     $scope.loading = true;
     $scope.addMode = true;
@@ -27,6 +29,7 @@
         this.newcontact.phoneNumber = "";
         this.newcontact.city = "";
         this.newcontact.country = "";
+        this.newcontact.photo = "";
     };
 
     $scope.openAdd = function () {
@@ -63,21 +66,6 @@
         });
     };
 
-    $scope.add = function () {
-        $scope.loading = true;
-        contactFactory.addContact(this.newcontact).success(function (data) {
-            toastr.success("Added Successfully!!");
-            $scope.addMode = false;
-            $scope.contacts.push(data);
-            $scope.loading = false;
-            $scope.$broadcast("closeModal");
-        }).error(function (data) {
-            $scope.error = "An Error has occurred while Adding contact! " + data.ExceptionMessage;
-            $scope.loading = false;
-
-        });
-    };
-
     $scope.delcontact = function () {
         $scope.loading = true;
         var currentContact = this.contact;
@@ -97,17 +85,6 @@
         });
     };
 
-    //get all Contacts- Self Calling -On load
-    contactFactory.getContacts().success(function (data) {
-        $scope.contacts = data;
-        $scope.totalCount = $scope.contacts.totalCount;
-        $scope.loading = false;
-    })
-    .error(function (data) {
-        $scope.error = "An Error has occurred while loading posts! " + data.ExceptionMessage;
-        $scope.loading = false;
-    });
-
     $scope.opened = false;
 
     //Datepicker
@@ -115,6 +92,143 @@
         'year-format': "'yy'",
         'show-weeks': false
     };
+
+ //-----Persist Contact-----------------------------------------------------------------------------------------------
+    var createAddContactRequest = function () {
+        var returnValue = model.newcontact;
+        return returnValue;
+    };
+
+    var attemptToSaveContact = function (request) {
+        return requestManager.attemptToCallOperation(function () {
+            return contactManager.addContact(request);
+        });
+    };
+
+    var saveContact = function (model, successCallback, errorCallback) {
+        requestManager.callOperation(
+            function () {
+                debugger;
+                 var request = createAddContactRequest();
+                 return attemptToSaveContact(request);    
+            },
+            successCallback,
+            null,
+            function (response) {
+                var errorMessage;
+                errorMessage = 'Failure to save the contact.';
+                toastr.error(errorMessage, 'Validation Error');
+                $scope.loading = false;
+                $scope.$broadcast("closeModal");
+                if (!errorCallback) return;
+                errorCallback(response);
+            }
+        );
+    };
+
+    var validateAndSaveContact = function (event, successCallback) {
+
+        saveContact($scope.model, function (response) {
+            debugger;
+            toastr.success("Added Successfully!!");
+            $scope.addMode = false;
+            $scope.contacts.push(model.newcontact);
+            $scope.loading = false;
+            $scope.$broadcast("closeModal");
+
+            if (successCallback) {
+               
+                successCallback();
+            }
+        }, function (response) {
+        });
+    };
+
+    $scope.add = function (event) {
+        debugger;
+        $scope.model.newcontact = this.newcontact;
+             validateAndSaveContact(event);
+         };
+
+   
+//-----GetContact list-----------------------------------------------------------------------------------------------
+
+         var createGetContactListRequest = function () {
+           var returnValue = {
+            //skip: model.offset,
+            //take: model.range,
+        };
+        return returnValue;
+    };
+
+    var attemptToGetContactList = function (request) {
+        return requestManager.attemptToCallOperation(function () {
+            return contactManager.getContactList(request);
+        });
+    };
+
+    var getContactList = function (successCallback) {
+        requestManager.callOperation(
+            function () {
+                var request = createGetContactListRequest();
+                return attemptToGetContactList(request);
+            },
+            successCallback,
+            function () {
+                getContactList(successCallback);
+            }
+        );
+    };
+
+    var loadContactList = function (successCallback) {
+        getContactList(function (response) {
+            debugger;
+            if (model.contactList == null) {
+                model.start = 1;
+                if (response.contactList && response.contactList.length > 0) {
+                    model.contactList = response.contactList;
+                    $scope.loading = false;
+                    debugger;
+                    $scope.contacts = response.contactList;
+                }
+            } else if (response.contactList.length > 0) {
+                debugger;
+                model.contactList = model.contactList.concat(response.contactList);
+            }
+
+            model.isGridEmpty = model.contactList == null || model.contactList.length == 0;
+          
+            if (!successCallback) return;
+            successCallback();
+        });
+    };
+
+    $scope.$on('loadMoreContacts', function () {
+        debugger;
+        if (model.offset >= model.totalFilteredCount) return;
+
+        model.start += 1;
+        model.offset = (model.start - 1) * model.range;
+
+        loadContactList(function () {
+            $scope.$broadcast('moreContactsLoaded');
+        });
+    });
+
+    var model = {
+        isGridEmpty: false,     
+        contactList: null,
+        start: 0,
+        range: 20,
+        offset: 0,
+        totalFilteredCount: 0,
+        newcontact: {}
+    };
+
+    $scope.model = model;
+    $scope.model.newcontact = this.newcontact;
+
+    loadContactList();
 
 }]);
 

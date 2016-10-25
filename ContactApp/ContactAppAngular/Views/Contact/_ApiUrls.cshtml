@@ -1,0 +1,12 @@
+﻿@using ContactAppAngular.Utilities
+
+<script type="text/javascript">
+    var apiUrls = {
+        contact: {
+            getList: '@Url.ApiAction("GetContactList", "Contacts")',
+            @*get: '@Url.ApiAction("GetContact", "Contacts")',*@
+            persist: '@Url.ApiAction("PersistContact", "Contacts")',
+            @*deletePermanently: '@Url.ApiAction("DeleteContact", "Contacts")'*@
+        }
+    };
+</script>

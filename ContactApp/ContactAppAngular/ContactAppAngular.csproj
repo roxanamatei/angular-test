@@ -158,6 +158,12 @@
     <Compile Include="Models\Contact\Contact.cs" />
     <Compile Include="Models\Contact\ContactContext.cs" />
     <Compile Include="Models\Contact\ContactRepository.cs" />
+    <Compile Include="Models\Contact\GetContactListResponse.cs" />
+    <Compile Include="Models\Contact\GetContactListRequest.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
+    <Content Include="Modules\Contact\factories\newContactFactory.js" />
+    <Content Include="Modules\Contact\factories\notifier.js" />
+    <Content Include="Modules\Contact\filters\capitalizer.js" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +186,7 @@
     <Content Include="Modules\Contact\factories\contactFactory.js" />
     <Content Include="Modules\Contact\directives\contacts.js" />
     <Content Include="Modules\Contact\filters\tel.js" />
+    <Content Include="Modules\Contact\services\requestManager.js" />
     <Content Include="Modules\Contact\templates\Contact.html" />
     <Content Include="Modules\Contact\templates\ContactAdd.html" />
     <Content Include="Modules\Contact\templates\ContactDetails.html" />
@@ -283,11 +290,11 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\_ApiUrls.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\bootstrap\" />
     <Folder Include="Modules\Contact\modules\" />
-    <Folder Include="Modules\Contact\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

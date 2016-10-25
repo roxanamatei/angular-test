@@ -23,17 +23,38 @@ namespace ContactAppAngular.Controllers
                     contact.EditMode = 0;
                 }
             }
-            catch (Exception ex) {
- 
+            catch (Exception ex)
+            {
+                //TODO logging
             }
 
             return result;
         }
 
+        [HttpPost]
+        public GetContactListResponse GetContactList(GetContactListRequest request)
+        {
+            var response = new GetContactListResponse();
+            try
+            {
+                var result = _contacts.GetAll().ToList();
+
+                response.ContactList = result;
+                //.Skip(request.Skip).
+                //    Take(request.Take); ;
+            }
+            catch (Exception ex)
+            {
+                //TODO logging
+            }
+
+            return response;
+        }
+
         // GET api/<controller>/5
         public Contact Get(int id)
         {
-            
+
             Contact c = _contacts.Get(id);
             if (c == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -42,29 +63,30 @@ namespace ContactAppAngular.Controllers
         }
 
         // POST api/<controller>
-        public Contact Post(Contact contact)
-        {  
+        [HttpPost]
+        public Contact PersistContact(Contact contact)
+        {
             Contact c = new Contact();
-            try
-            {
-                //contact.Birthay = DateTime.Today;
+            //try
+            //{
                 c = _contacts.Add(contact);
-            }
-            catch (Exception ex)
-            {
-
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    //TODO logging
+            //}
 
             return c;
         }
 
         // PUT api/<controller>/5
+
         public Contact Put(Contact contact)
         {
             try
             {
-            if (!_contacts.Update(contact))
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                if (!_contacts.Update(contact))
+                    throw new HttpResponseException(HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
