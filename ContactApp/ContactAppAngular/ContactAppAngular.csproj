@@ -161,10 +161,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ContactAppAngular.Models.ContactContext.mdf" />
-    <Content Include="App_Data\ContactAppAngular.Models.ContactContext_log.ldf">
-      <DependentUpon>ContactAppAngular.Models.ContactContext.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>

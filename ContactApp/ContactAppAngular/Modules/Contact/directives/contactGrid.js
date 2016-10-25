@@ -26,7 +26,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                            enableFiltering: false,
                            enableCellEdit: false,
                            enableColumnMenu: false,    
-                           cellTemplate: "<div class=\"ui-grid-cell-contents\"><img class =\"img-circle\" src=\"{{COL_FIELD}}\" width=\"50\" height=\"40\" alt=\"X...\">",
+                           cellTemplate: "<div class=\"ui-grid-cell-contents\"><img class =\"img-circle\" src=\"{{COL_FIELD}}\" width=\"75\" height=\"55\" alt=\"X...\">",
                        },
                    
                     {
@@ -34,7 +34,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         displayName: "First Name",
                         enableSorting: true,
                         enableColumnMenu: false,
-                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD}}</span></div>",
+                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD | capitalize}}</span></div>",
                         sort: {
                             direction: uiGridConstants.ASC
                         }
@@ -46,7 +46,7 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         enableSorting: true,
                         enableCellEdit: true,
                         enableColumnMenu: false,
-                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD}}</span></div>",
+                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD | capitalize}}</span></div>",
                         sort: {
                             direction: uiGridConstants.ASC
                         }
@@ -81,11 +81,33 @@ contactModule.directive("contactgrid", function (uiGridConstants) {
                         enableCellEdit: true,
                         enableSorting: true,
                         enableColumnMenu: false,
-                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD}}</span></div>",
+                        cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD | capitalize}}</span></div>",
                         sort: {
                             direction: uiGridConstants.ASC
                         }
                     },
+                     {
+                         field: "city",
+                         displayName: "City",
+                         enableCellEdit: true,
+                         enableSorting: true,
+                         enableColumnMenu: false,
+                         cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD | capitalize}}</span></div>",
+                         sort: {
+                             direction: uiGridConstants.ASC
+                         }
+                     },
+                      {
+                          field: "country",
+                          displayName: "Country",
+                          enableCellEdit: true,
+                          enableSorting: true,
+                          enableColumnMenu: false,
+                          cellTemplate: "<div class=\"ui-grid-cell-contents\"><span class=\"cursor contact-name\" >{{COL_FIELD | capitalize}}</span></div>",
+                          sort: {
+                              direction: uiGridConstants.ASC
+                          }
+                      },
                     {
                         field: "birthay",
                         displayName: "Birthdate",

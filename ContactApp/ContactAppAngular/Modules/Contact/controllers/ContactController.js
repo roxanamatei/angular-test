@@ -25,6 +25,8 @@
         this.newcontact.birthay = "";
         this.newcontact.description = "";
         this.newcontact.phoneNumber = "";
+        this.newcontact.city = "";
+        this.newcontact.country = "";
     };
 
     $scope.openAdd = function () {

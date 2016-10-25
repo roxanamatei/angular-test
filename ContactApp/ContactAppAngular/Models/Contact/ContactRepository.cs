@@ -68,6 +68,9 @@ namespace ContactAppAngular.Models
             newContact.Gender = item.Gender;
             newContact.PhoneNumber = item.PhoneNumber;
             newContact.Photo = item.Photo;
+            newContact.City = item.City;
+            newContact.Country = item.Country;
+            newContact.State = item.State;
 
             _db.SaveChanges();
             return true;

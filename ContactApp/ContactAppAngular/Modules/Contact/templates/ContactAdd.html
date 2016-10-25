@@ -34,13 +34,19 @@
 
                 </fieldset>
                 <fieldset class="form-group">
+                    <input type="text" class="form-control entity-normal" ng-model="newcontact.city"  placeholder="City" />
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="text" class="form-control entity-normal" ng-model="newcontact.country"  placeholder="Country"  />
+                </fieldset>
+                <fieldset class="form-group">
                     <textarea class="form-control entity-normal" ng-model="newcontact.description" placeholder="Write a short description of the contact..." title="Description" required></textarea>
                 </fieldset>
             </form>
         </div>
         <div class="modal-footer">
-            <fieldset class="form-group">
-                <a ng-hide="addMode" class="back" ng-href='#/details/{{newcontact.id}}'>Contact details</a>
+            <fieldset class="form-group"> 
+                <a ng-hide="addMode" class="back" ng-href='#/details/{{newcontact.id}}/mode/view?'>Contact details</a>
                 <input ng-show="addMode"  type="submit" value="&#10004; Add" data-ng-click="add()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
                 <input ng-hide="addMode"  type="submit" value="&#10004; Save Changes" data-ng-click="save()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
                 <input type="button" value="Cancel" data-ng-click="closeModal()" class="btn btn-primary" uib-tooltip="Contact will not be saved" />

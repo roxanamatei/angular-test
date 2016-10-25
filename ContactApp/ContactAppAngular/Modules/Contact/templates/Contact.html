@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td>Phone Number:</td>
-            <td>{{ contact.phoneNumber }}</td>
+            <td>{{ contact.phoneNumber |tel }}</td>
         </tr>
         <tr>
             <td>Gender:</td>
@@ -32,7 +32,7 @@
         </tr>
         <tr>
             <td>Address:</td>
-            <td>{{ contact.description }}</td>
+            <td>City: {{ contact.city }} Country: {{ contact.country }} State: {{ contact.state }}</td>
         </tr>
 
     </table>
@@ -48,10 +48,10 @@
         </span>
         <img src="{{contact.photo}}" width="300" height="300" alt="Image preview...">
         <br />
-        <p>
+        <!--<p>
             Image dataURI:
             <pre>{{contact.photo}}</pre>
-        </p>
+        </p>-->
         <br />
         <button class="btn btn-success btn-file" ng-click="uploadImage(contact.photo)">Upload image</button>
     </div>
