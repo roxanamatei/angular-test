@@ -1,4 +1,5 @@
 ﻿var contactModule = angular.module('contact', ['ui.bootstrap', 'ui.grid', 'ui.grid.edit', 'ui.grid.cellNav', 'ngRoute', 'ui.grid.infiniteScroll']);
+
 contactModule.value("$", $);
 contactModule.value('toastr', toastr);
 

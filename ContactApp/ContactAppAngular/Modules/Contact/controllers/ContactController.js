@@ -219,6 +219,7 @@
 
     $scope.activateFilter = function (event) {
         debugger;
+
         $scope.model.contactList.length = 0;
         $scope.model.range= 20,
         $scope.model.offset = 0,

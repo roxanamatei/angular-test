@@ -70,8 +70,7 @@ namespace ContactAppAngular.Controllers
 
             return c;
         }
-
-    
+ 
         [HttpPost]
         public Contact PersistContact(Contact contact)
         {
@@ -88,8 +87,6 @@ namespace ContactAppAngular.Controllers
             return c;
         }
 
-        // PUT api/<controller>/5
-
         public Contact Put(Contact contact)
         {
             try
@@ -105,7 +102,6 @@ namespace ContactAppAngular.Controllers
 
         }
 
-        // DELETE api/<controller>/5
         public Contact Delete(int id)
         {
             Contact c = _contacts.Get(id);
